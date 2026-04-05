@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+
+	<head>
+
+		<!-- prevent indexing -->
+		<meta name="robots" content="noindex, nofollow">
+
+		<!-- preload assets -->
+		<link rel="preload" as="image" href="assets/branding/logo/logo-main.png">
+		<link rel="preload" href="assets/fonts/primerPrint/primer_print_bold-webfont.woff2" as="font" type="font/woff2">
+
+		<!-- page information -->
+		<title>Play Now | Questers </title>
+		<meta name="description" content="Enter your access PIN to play a Quester escape room."/>
+
+		<!-- meta tags -->
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+
+		<!-- css files -->
+		<link type="text/css" rel="stylesheet" href="css/splash.css?version=3.4.15">
+		<link type="text/css" rel="stylesheet" href="css/splash-new.css?version=3.4.15">
+		<link type="text/css" rel="stylesheet" href="css/home.css?version=3.4.15">
+		<link type="text/css" rel="stylesheet" href="css/activity.css?version=3.4.15">
+		<link type="text/css" rel="stylesheet" href="css/dynamic.css?version=3.4.15">
+		<link type="text/css" rel="stylesheet" href="css/global.css?version=3.4.15">
+
+		<!-- favicon -->
+		<link rel="icon" type="image/png" sizes="192x192" href="assets/website/favicon-192x192.png">
+
+		<!-- open graph metadata -->
+		<meta property="og:title" content="Play Quester Digital" />
+		<meta property="og:description" content="Play Your Quester Digital Escape Room" />
+		<meta property="og:image" content="assets/website/questroom.png" />
+		<meta property="og:url" content="https://questercomunity.com/go" />
+		<meta property="og:type" content="website" />
+
+		<!-- iOS overrides-->
+		<meta name="apple-mobile-web-app-title" content="Play Now | Quester Digital">
+		<meta name="application-name" content="Play Now | Quester Digital">
+		<meta property="og:site_name" content="Play Now | Quester Digital">
+
+		<!-- google analytics -->
+		<script async src="https://www.googletagmanager.com/gtag/js?id=G-C3DG9YEYJ3"></script>
+		<script>
+		window.dataLayer = window.dataLayer || [];
+		function gtag(){dataLayer.push(arguments);}
+		gtag('js', new Date());
+
+		gtag('config', 'G-C3DG9YEYJ3');
+		</script>
+
+		<!-- schema -->
+		<script type="application/ld+json">
+		{
+			"@context": "https://schema.org",
+			"@type": "WebSite",
+			"name": "Play Now | Quester Digital",
+			"url": "https://questercomunity.com/go",
+			"sameAs": "https://questercomunity.com",
+			"isPartOf": {
+				"@type": "WebSite",
+				"name": "Quester Digital",
+				"url": "https://questercomunity.com"
+			}
+		}
+		</script>
+
+	</head>
+
+	<body>
+
+		<!-- device rotation -->
+		<div class = "div-rotate">
+			<div class = "div-rotate-content">
+				<img class = "img-rotate" src = "assets/website/rotate-device-example.png" alt = "example of a device in landscape mode">
+				<p class = "p-rotate"><span class = "p-rotate--gold">Rotate your device!</span> Quester digital works best in landscape mode.</p>
+			</div>
+		</div>	
+
+		<!-- website container -->
+		<div class = "site-container">
+
+			<!-- modal -->
+			<section class = "modal modal--hidden">
+				<div class = "modal__popup modal__popup--hidden style-border--default">
+					<p class = "modal__x style-border--default">&#x2715</p>
+					<p class = "modal__title"></p>
+					<p class = "modal__paragraph"></p>
+					<button class = "modal__button style-border--default"></button>
+				</div>
+				<div class = "modal__blackout modal__blackout--hidden"></div>
+			</section>
+
+			<!-- splash -->
+			<section class = "splash splash--visible">
+				<div class = "splash-container-wrapper">
+					<div class = "keyboard--splash keyboard-splash--off-right">
+						<div class = "keyboard-row keyboard-row--splash">
+							<button class = "keyboard-button keyboard-button--splash" ontouchstart>1</button>
+							<button class = "keyboard-button keyboard-button--splash" ontouchstart>2</button>
+							<button class = "keyboard-button keyboard-button--splash" ontouchstart>3</button>
+						</div>
+						<div class = "keyboard-row keyboard-row--splash">
+							<button class = "keyboard-button keyboard-button--splash" ontouchstart>4</button>
+							<button class = "keyboard-button keyboard-button--splash" ontouchstart>5</button>
+							<button class = "keyboard-button keyboard-button--splash" ontouchstart>6</button>
+						</div>
+						<div class = "keyboard-row keyboard-row--splash">
+							<button class = "keyboard-button keyboard-button--splash" ontouchstart>7</button>
+							<button class = "keyboard-button keyboard-button--splash" ontouchstart>8</button>
+							<button class = "keyboard-button keyboard-button--splash" ontouchstart>9</button>
+						</div>
+					</div>
+				</div>
+			</section>
+
+			<!-- footer -->
+			<section class = "footer footer--hidden">
+				<div class = "footer-element footer-element-timer--visible" id = "footer-element-timer">
+					<p class = "footer-element-time-label"></p>
+					<p class = "footer-element-time-remaining">&nbsp</p>
+				</div>
+			</section>
+	
+			<!-- activity -->
+			<section class = "activity state-display-none">
+				<div class = "activity-modal activity-modal--close">
+					<div class = "activity-modal-wrapper overflow-y-scroll">
+						<div class = "activity-modal-content-container">
+							<button class = "activity-modal-content-container-toggle activity-modal-content-container-toggle--hidden" ontouchstart></button>
+							<div class = "activity-modal-content-container-top"></div>
+							<div class = "activity-modal-content-container-bottom">
+								<button class = "scroll-up" ontouchstart></button>
+								<div class = "machine-container">
+									<div class = "activity-modal-hint activity-modal-hint--hidden">
+										<div class = "activity-modal-hint-container">
+											<p class = "activity-modal-hint-text"></p>
+											<button class = "activity-modal-hint-button" ontouchstart>CLOSE</button>
+										</div>
+									</div>
+									<div class = "machine-column machine-column-left"></div>
+									<div class = "machine-column machine-column-right"></div>
+								</div>
+							</div>
+							<div class = "activity-modal-screen">
+							</div>
+							<div class = "activity-modal-code-machine">
+								<button class = "activity-button-hint activity-button-hint--visible" ontouchstart></button>
+								<button class = "activity-button-done activity-button-done--close" ontouchstart></button>
+								<div class="keyboard">
+									<div class="keyboard-row">
+										<button class="keyboard-button" ontouchstart>A</button>
+										<button class="keyboard-button" ontouchstart>B</button>
+										<button class="keyboard-button" ontouchstart>C</button>
+										<button class="keyboard-button" ontouchstart>D</button>
+										<button class="keyboard-button" ontouchstart>E</button>
+										<button class="keyboard-button" ontouchstart>F</button>
+										<button class="keyboard-button" ontouchstart>G</button>
+										<button class="keyboard-button" ontouchstart>H</button>
+										<button class="keyboard-button" ontouchstart>I</button>
+										<button class="keyboard-button" ontouchstart>J</button>
+										<button class="keyboard-button" ontouchstart>K</button>
+										<button class="keyboard-button" ontouchstart>L</button>
+										<button class="keyboard-button" ontouchstart>M</button>
+									</div>
+									<div class="keyboard-row">					
+										<button class="keyboard-button" ontouchstart>N</button>
+										<button class="keyboard-button" ontouchstart>O</button>
+										<button class="keyboard-button" ontouchstart>P</button>
+										<button class="keyboard-button" ontouchstart>Q</button>
+										<button class="keyboard-button" ontouchstart>R</button>
+										<button class="keyboard-button" ontouchstart>S</button>
+										<button class="keyboard-button" ontouchstart>T</button>
+										<button class="keyboard-button" ontouchstart>U</button>
+										<button class="keyboard-button" ontouchstart>V</button>
+										<button class="keyboard-button" ontouchstart>W</button>
+										<button class="keyboard-button" ontouchstart>X</button>
+										<button class="keyboard-button" ontouchstart>Y</button>
+										<button class="keyboard-button" ontouchstart>Z</button>
+									</div>
+								</div>								
+							</div>
+						</div>		
+
+					</div>
+						<button class = "button-close-modal" ontouchstart></button>
+				</div>
+				<div class = "activity-blackout activity-blackout--close"></div>
+			</section>
+
+			<!-- nodes -->
+			<div class = "activity-node-container state-display-none"></div>	
+
+		</div>
+
+		<!-- scripts -->
+		<div id = "script-resource"></div>	
+		<div id = "script-cutscene"></div>	
+		<script type="text/javascript" src="js/analytics.js?version=3.4.15"></script>	
+		<script type="text/javascript" src="js/global.js?version=3.4.15"></script>
+		<script type="text/javascript" src="js/home.js?version=3.4.15"></script>
+		<script type="text/javascript" src="js/scene.js?version=3.4.15"></script>
+		<script type="text/javascript" src="js/activity.js?version=3.4.15"></script>
+		<script type="text/javascript" src="js/activity/code-box.js?version=3.4.15"></script>
+		<script type="text/javascript" src="js/activity/passage.js?version=3.4.15"></script>
+		<script type="text/javascript" src="js/activity/multipleChoice.js?version=3.4.15"></script>
+		<script type="text/javascript" src="js/activity/poem.js?version=3.4.15"></script>
+		<script type="text/javascript" src="js/activity/crossword.js?version=3.4.15"></script>
+		<script type="text/javascript" src="js/activity/story.js?version=3.4.15"></script>
+		<script type="text/javascript" src="js/activity/cryptogram.js?version=3.4.15"></script>
+		<script type="text/javascript" src="js/activity/decoder.js?version=3.4.15"></script>
+		<script type="text/javascript" src="js/activity/puzzle.js?version=3.4.15"></script>
+		<script type="text/javascript" src="js/activity/dynamic.js?version=3.4.15"></script>
+		<script type="text/javascript" src="js/splash-new.js?version=3.4.15"></script>
+
+	<script defer src="https://static.cloudflareinsights.com/beacon.min.js/v8c78df7c7c0f484497ecbca7046644da1771523124516" integrity="sha512-8DS7rgIrAmghBFwoOTujcf6D9rXvH8xm8JQ1Ja01h9QX8EzXldiszufYa4IFfKdLUKTTrnSFXLDkUEOTrZQ8Qg==" data-cf-beacon='{"version":"2024.11.0","token":"081f08e9d52b4327bfb0ac81cb28591e","r":1,"server_timing":{"name":{"cfCacheStatus":true,"cfEdge":true,"cfExtPri":true,"cfL4":true,"cfOrigin":true,"cfSpeedBrain":true},"location_startswith":null}}' crossorigin="anonymous"></script>
+</body>
+
+</html>

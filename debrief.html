@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+
+	<head>
+
+		<!-- preload assets -->
+		<link rel="preload" as="image" href="assets/debrief/outcome/victory.png">
+		<link rel="preload" as="image" href="assets/debrief/outcome/fail.png">
+
+		<!-- prevent indexing -->
+		<meta name="robots" content="noindex, nofollow">
+
+		<!-- page information -->
+		<title>Debrief | Questers</title>
+		<meta name="description" content="View the Zesty Points from your Quest ."/>
+		
+		<!-- meta tags -->
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+		
+		<!-- css files -->
+		<link type="text/css" rel="stylesheet" href="css/debrief.css?version=3.4.15">
+
+		<!-- favicon -->
+		<link rel="icon" type="image/png" sizes="192x192" href="assets/website/favicon-192x192.png">
+
+		<!-- google analytics -->
+		<script async src="https://www.googletagmanager.com/gtag/js?id=G-C3DG9YEYJ3"></script>
+		<script>
+		window.dataLayer = window.dataLayer || [];
+		function gtag(){dataLayer.push(arguments);}
+		gtag('js', new Date());
+
+		gtag('config', 'G-C3DG9YEYJ3');
+		</script>
+
+	</head>
+
+	<body>
+
+		<!-- exit button -->
+		<button class="button__exit button__exit--hidden style-border--default" onclick="history.back()">EXIT</button>
+
+		<!-- content -->
+		<div class = "content-wrapper">
+
+			<section class = "modal modal--hidden">
+				<div class = "modal__popup modal__popup--hidden style-border--default">
+					<p class = "modal__x style-border--default">&#x2715</p>
+					<p class = "modal__title"></p>
+					<p class = "modal__paragraph"></p>
+					<button class = "modal__button style-border--default"></button>
+				</div>
+				<div class = "modal__blackout modal__blackout--hidden"></div>
+			</section>
+
+			<div class = "div-rotate">
+				<p class = "p-rotate">Rotate your device.</p>
+			</div>	
+
+			<section class = debrief-container>
+
+				<p class = "p-title">&nbsp &nbsp YOUR ZEST<span class = "icon-clickable--debrief style-border--debrief" id = "icon-clickable--debrief">?</span></p>
+				
+				<div class = "stat-container">
+					<div class = "stat stat-team stat--hidden">
+						<p class = "p-debrief-title">Players</p>
+						<p class = "p-debrief-stat debrief-stat-teamSize"></p>
+						<p class = "p-debrief-subtitle debrief-stat-teamSize-modifier">Modifier</p>
+					</div>
+					<div class = "stat stat-activities stat--hidden">
+						<p class = "p-debrief-title">Challenges</p>
+						<p class = "p-debrief-stat debrief-stat-activitiesCompleted"></p>
+						<p class = "p-debrief-subtitle debrief-stat-activitiesCompleted-modifier">Modifier</p>
+					</div>
+					<div class = "stat stat-hints stat--hidden">
+						<p class = "p-debrief-title">Hints</p>
+						<p class = "p-debrief-stat debrief-stat-hintsUsed"></p>
+						<p class = "p-debrief-subtitle debrief-stat-hintsUsed-modifier">Modifier</p>
+					</div>
+					<div class = "stat stat-time stat--hidden">
+						<p class = "p-debrief-title">Time</p>
+						<p class = "p-debrief-stat debrief-stat-timeRemaining"></p>
+						<p class = "p-debrief-subtitle debrief-stat-timeRemaining-modifier">Modifier</p>
+					</div>
+					<div class = "stat stat-score stat--hidden">
+						<p class = "p-debrief-title p-debrief-title-finalscore">Final Score</p>
+						<p class = "p-debrief-stat debrief-stat-finalScore"></p>
+						<p class = "p-debrief-subtitle debrief-stat-finalScore">out of 1000</p>
+					</div>
+				</div>
+				
+				<div class = "score-container score-container--hidden">
+					<div class = "score-meter">
+					</div>
+				</div>
+
+				<div class = "medal-container medal-container--hidden">
+					<div class = "div-medal-container" id = "div-medal-container-1">		
+						<p class = "debrief-stat-rank debrief-stat-rank--light-brown debrief-stat-rank-1">0-349</p>	
+						<img class = "img-medal img-medal--hidden" id = "img-medal-1" src = "assets/debrief/medal/medal-1-hidden.png" alt = "medal indicating rank 1">
+					</div>
+					<div class = "div-medal-container" id = "div-medal-container-2">
+						<p class = "debrief-stat-rank debrief-stat-rank--light-brown debrief-stat-rank-2">350-699</p>
+						<img class = "img-medal img-medal--hidden" id = "img-medal-2" src = "assets/debrief/medal/medal-2-hidden.png" alt = "medal indicating rank 2">
+					</div>
+					<div class = "div-medal-container" id = "div-medal-container-3">
+						<p class = "debrief-stat-rank debrief-stat-rank--light-brown debrief-stat-rank-3">700-799</p>
+						<img class = "img-medal img-medal--hidden" id = "img-medal-3" src = "assets/debrief/medal/medal-3-hidden.png" alt = "medal indicating rank 3">
+					</div>
+					<div class = "div-medal-container" id = "div-medal-container-4">
+						<p class = "debrief-stat-rank debrief-stat-rank--light-brown debrief-stat-rank-4">800-899</p>
+						<img class = "img-medal img-medal--hidden" id = "img-medal-4" src = "assets/debrief/medal/medal-4-hidden.png" alt = "medal indicating rank 4">
+					</div>
+					<div class = "div-medal-container" id = "div-medal-container-5">
+						<p class = "debrief-stat-rank debrief-stat-rank--light-brown debrief-stat-rank-5">900+</p>
+						<img class = "img-medal img-medal--hidden" id = "img-medal-5" src = "assets/debrief/medal/medal-5-hidden.png" alt = "medal indicating rank 5">
+					</div>
+				</div>			
+
+			</section>
+
+		</div>
+
+		<!-- outcome -->
+		<div class = "page-wrapper page-wrapper--visible">
+			<div class = "image-outcome image-outcome--out"></div>
+		</div>
+
+		<!-- scripts -->
+		<script type="text/javascript" src="js/debrief.js?version=3.4.15"></script>
+
+	<script defer src="https://static.cloudflareinsights.com/beacon.min.js/v8c78df7c7c0f484497ecbca7046644da1771523124516" integrity="sha512-8DS7rgIrAmghBFwoOTujcf6D9rXvH8xm8JQ1Ja01h9QX8EzXldiszufYa4IFfKdLUKTTrnSFXLDkUEOTrZQ8Qg==" data-cf-beacon='{"version":"2024.11.0","token":"081f08e9d52b4327bfb0ac81cb28591e","r":1,"server_timing":{"name":{"cfCacheStatus":true,"cfEdge":true,"cfExtPri":true,"cfL4":true,"cfOrigin":true,"cfSpeedBrain":true},"location_startswith":null}}' crossorigin="anonymous"></script>
+</body>
+
+
+</html>
