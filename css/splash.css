@@ -6,7 +6,7 @@
 }
 
 .splash-nav {
-    font-family: 'Grandstander Variable', cursive;
+    font-family: 'Primer-Print Variable', cursive;
     color: rgba(var(--off-white), 1);
     text-align: left;
     position: absolute;
@@ -35,7 +35,7 @@
 }
 
 .splash-version {
-    font-family: 'Grandstander Variable', cursive;
+    font-family: 'Primer-Print Variable', cursive;
     color: rgba(var(--off-white), 1);
     text-align: left;
     position: absolute;
@@ -146,6 +146,7 @@
     }
 
     .splash-button {
+        font-family: 'Primer-Print Variable', cursive;
         position: absolute;
         right: 0;
         bottom: 0;
@@ -153,7 +154,6 @@
         background-color: rgba(var(--gold), 1);
         color: rgba(var(--off-black), 1);
         text-align: center;
-        font-family: 'Grandstander Variable', cursive;
         display: block;
         transition: transform 0.2s, opacity 0.1s;
         transform-origin: center center;
@@ -178,7 +178,7 @@
     }
 
     .splash-title {
-        font-family: 'Grandstander Variable', cursive;
+        font-family: 'Primer-Print Variable', cursive;
         color: rgba(var(--off-white), 1);
         text-align: center;
         position: absolute;
@@ -201,7 +201,7 @@
     }
 
     .splash-subtitle {
-        font-family: 'Grandstander Variable', cursive;
+        font-family: 'Primer-Print Variable', cursive;
         color: rgba(var(--off-white), 1);
         text-align: center;
         position: absolute;
@@ -245,12 +245,12 @@
     }
 
     .splash-banner-text {
-        font-family: 'Grandstander Variable', cursive;
+        font-family: 'Primer-Print Variable', cursive;
         color: rgba(var(--off-black), 1);
     }
 
     .splash-p {
-        font-family: 'Grandstander Variable', cursive;
+        font-family: 'Primer-Print Variable', cursive;
         color: rgba(var(--off-black), 1);
         line-height: 95%;
     }
@@ -316,11 +316,11 @@
         border-radius: 1vmin;
         margin: 0 0.7%;
         text-align: center;
-        font-family: 'Grandstander Variable', sans-serif;
         caret-color: transparent;
         opacity: 1;
         transition: transform 0.1s, opacity 0.15s;
         aspect-ratio: 13/15;
+        font-family: 'Primer-Print Variable', cursive;
     }
 
     .access-input:focus {
@@ -387,7 +387,7 @@
             flex-grow: 1;  
             padding: 2.2% 3.5% 2.5% 3.5%;
             margin: 0 -0.2%;
-            font-family: 'Grandstander Variable', cursive;
+            font-family: 'Primer-Print Variable', cursive;
             border: 0.4vmin solid rgba(var(--gold), 1);
             line-height: 80%;
         }
@@ -472,7 +472,7 @@
         }
 
         .character-select-button-text {
-            font-family: 'Grandstander Bold', cursive;
+            font-family: 'Primer-Print Bold', cursive;
             position: absolute;
             right: 50%;
             bottom: 6%;
@@ -561,7 +561,7 @@
     width: 100%;
     height: 100%;
     color: rgba(var(--off-black), 1);
-    font-family: 'Grandstander Variable', sans-serif;
+    font-family: 'Primer-Print Variable', sans-serif;
     padding: 6% 7.5% 4% 7.5%;
     box-sizing: border-box;
     line-height: 120%;

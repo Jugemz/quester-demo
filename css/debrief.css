@@ -29,9 +29,8 @@
 }
 
 @font-face {
-	font-family: 'Grandstander Variable';
-    src: url('../assets/fonts/Grandstander/static/Grandstander-Thin.ttf') format('woff2'),
-         url('../assets/fonts/Grandstander/static/Grandstander-Thin.ttf') format('woff');
+    font-family: 'Primer-Print Variable';
+    src: url('../assets/fonts/nunito/static/Primer-Print-Bold.ttf') format('truetype');
     font-weight: normal;
     font-style: normal;
     font-display: swap;
@@ -164,7 +163,7 @@ body {
     padding: 1% 3.5%;
     border-radius: 1vmin;
     cursor: pointer;
-	font-family: 'Grandstander Variable';
+	font-family: 'Primer-Print Variable';
 	box-sizing: border-box;
 }
 
@@ -290,7 +289,7 @@ button,input {
         }
 
 p {
-    font-family: 'Grandstander Variable', sans-serif;
+    font-family: 'Primer-Print Variable', sans-serif;
     color: rgba(var(--off-black),1);
 }
 
@@ -565,7 +564,7 @@ p {
 }
 
 .p-rotate {
-    font-family: 'Grandstander Variable', sans-serif;
+    font-family: 'Primer-Print Variable', sans-serif;
     font-size: 6vw;
     color: rgba(var(--off-black),1);
     text-align: center;
@@ -582,7 +581,7 @@ p {
 }
 
 .button__exit {
-    font-family: 'Grandstander Variable';
+    font-family: 'Primer-Print Variable';
     background-color: rgba(var(--salmon));
     color: rgba(var(--off-black));
     transition: opacity 0.2s;

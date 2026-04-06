@@ -8,9 +8,9 @@ const resource =  {
     },
 
     activityArray: [
-        /* The Mirror Shop */
+        /* The Mirror POND */
         {
-            title: "The Perception Pond",
+            title: "THE PERCEPTION POND",
             characterName: "FISH",
             topic: "Main Idea",
             assets: {
@@ -118,9 +118,9 @@ const resource =  {
                 
             }                     
         },
-        /* the candy cave */
+        /* the cave */
         {
-            title: "The Cave of Confusion",
+            title: "THE CAVE OF CONFUSION",
             characterName: "CRAB",
             topic: "Poetry",
             assets: {
@@ -193,7 +193,7 @@ const resource =  {
                         'H. With nowhere left for me to _______',
                     ],
                     puzzle: [
-    ["0","0","(G)4H","0","0","0","(A)Q","0","0","0","0","0"], 
+    ["0","0","(G) 4","0","0","0","(A)Q","0","0","0","0","0"], 
     ["(H)H","0","E","0","(B)S","O","U","1L","0","0","0","(F)W"], 
     ["2I","0","A","0","(C)E","V","E","R","Y","0","0","A"], 
     ["(D)D","A","R","K","N","E","S","S","0","0","0","K"], 
