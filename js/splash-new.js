@@ -1109,7 +1109,7 @@ function addCharacter(){
           }
         }
         function changeText(){
-          splashTitle.textContent = "All punks ready!";
+          splashTitle.textContent = "All Questers ready!";
         }
 
       }

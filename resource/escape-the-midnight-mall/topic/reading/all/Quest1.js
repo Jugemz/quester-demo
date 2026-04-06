@@ -181,22 +181,23 @@ const resource =  {
                 crossword: {
                     title: "Answer the questions to untangle your thoughts.",
                     paragraph: [
-                    'ACCROSS',
+                    'ACROSS',
                         'B. What did the light come to wake? ',
                         'C. What looks the same? ______ Path', 
                         'D. ______ is deep and wide.',
                         'E. The Title of the Poem is __________ of Thoughts?',
-                        'DOWN',
+                    'DOWN',
                         'A. A question is a _____ I am on.',
                         'F. What did the Light come to do to the soul?',
                         'G. Jesus came to rule my ______.',
+                        'H. With nowhere left for me to _______',
                     ],
                     puzzle: [
-    ["0","0","(G)H","0","0","0","(A)Q","0","0","0","0","0"], 
-    ["0","0","E","0","(B)S","O","U","L","0","0","0","(F)W"], 
-    ["0","0","A","0","(C)E","V","E","R","Y","0","0","A"], 
+    ["0","0","(G)H4","0","0","0","(A)Q","0","0","0","0","0"], 
+    ["0","(H)H","E","0","(B)S","O","U","L1","0","0","0","(F)W"], 
+    ["0","I2","A","0","(C)E","V","E","R","Y","0","0","A"], 
     ["(D)D","A","R","K","N","E","S","S","0","0","0","K"], 
-    ["0","0","T","0","0","0","(E)T","A","N","G","L","E"], 
+    ["0","E","T5","0","0","0","(E)T","A","N","G3","L","E"], 
     ["0","0","0","0","0","0","0","0","0","0","0","0"] // Added to match 12 count
 ]
                 }

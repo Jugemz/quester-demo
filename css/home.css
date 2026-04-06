@@ -378,7 +378,7 @@
     width: 18.2%;
     height: 27%;
     color: rgba(var(--black), 1);
-    font-family: 'Primer Print Bold', sans-serif;
+    font-family: 'Grandstander Bold', sans-serif;
     border-radius: 0.5vmin;
     transition: transform 0.2s;
     transform: scale(0);
@@ -414,7 +414,7 @@
     padding-bottom: 0.1%;
     transform-origin: center;
     color: rgba(var(--black), 1);
-    font-family: 'Primer Print Bold', sans-serif;
+    font-family: 'Grandstander Variable', sans-serif;
     background-image: url(../assets/interface/button/hint/default.png);
     text-shadow: 0 0.2vmin 0.1vmin rgba(var(--salmon-light));
     background-size: cover;
@@ -513,9 +513,9 @@
 }
 
 .footer-element-time-label {
-    margin-top: 13.5%;
+    margin-top: 10.5%;
     color:rgba(var(--off-black), 1);
-    line-height: 90%;
+    line-height: 85%;
     text-shadow: 0 0.2vmin 0.1vmin 0 rgba(var(--teal-light));
     padding: 0% 10%;
     text-align: center;

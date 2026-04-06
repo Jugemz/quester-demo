@@ -779,11 +779,11 @@ function toggleClass(element, classToRemove, classToAdd){
 // make red
 function makeRed(element, text) {
   element.innerHTML = text.replace(/(\{([^}]+)\})|(\[(.*?)\])/g, function(match, g1, g2, g3, g4) {
-      if (g2 !== undefined) {
-          return '<span class="machine-text-red">' + g2 + '</span>';
-      } else if (g4 !== undefined) {
-          return '<span class="style-font--symbols">' + g4 + '</span>';
-      }
+    if (g2 !== undefined) {
+      return '<span class="machine-text-red">' + g2.toUpperCase() + '</span>';
+    } else if (g4 !== undefined) {
+      return '<span class="style-font--symbols">' + g4 + '</span>';
+    }
   });
 }
 

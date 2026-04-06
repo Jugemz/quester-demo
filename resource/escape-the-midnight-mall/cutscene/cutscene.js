@@ -128,7 +128,7 @@ let cutscene = {
             backgroundColor: 'background-color-black'
         },
         {
-            text: 'Anyone still on the Island will be enared here...unable to continue the Quest!',
+            text: 'Anyone still on the Island will be ensnared here...unable to continue the Quest!',
             characterSprite: {
                 name: "Quester",
                 path: 'Quester-2.png',

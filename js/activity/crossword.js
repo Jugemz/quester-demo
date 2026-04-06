@@ -66,23 +66,25 @@ function drawCrossword(activityIndex){
         let machineCrosswordInput = createElement("input",["machine-crossword-input","machine-crossword-cell-filled","input-functionality-default"],machineCrosswordCell);
         machineCrosswordInput.type = "text";
         machineCrosswordInput.maxLength = 1;
-        const regex = /\((.+)\)/;
-        const match =  activityCrossword.puzzle[i][j].match(regex);
-        if (match) {
-          let machineCrosswordLabelVisible = createElement("p",["machine-crossword-label-visible", "number"],machineCrosswordCell);
-          machineCrosswordLabelVisible.textContent = match[1];
-        }
-        
-        if ( activityCrossword.puzzle[i][j].includes("1") ||  activityCrossword.puzzle[i][j].includes("2") ||  activityCrossword.puzzle[i][j].includes("3") ||  activityCrossword.puzzle[i][j].includes("4") ||  activityCrossword.puzzle[i][j].includes("5") ||  activityCrossword.puzzle[i][j].includes("6")) {
-          machineCrosswordInput.classList.add("machine-crossword-cell-red");
-          let machineCrosswordLabelHidden = createElement("p",["machine-crossword-label-hidden"],machineCrosswordCell);
-          if (match) {
-            machineCrosswordLabelHidden.textContent =  activityCrossword.puzzle[i][j].charAt(3);
-          }
-          else {
-             machineCrosswordLabelHidden.textContent =  activityCrossword.puzzle[i][j].charAt(0);
-          }
-        }   
+       const regex = /\((.+)\)/;
+const match = activityCrossword.puzzle[i][j].match(regex);
+
+if (match) {
+  let machineCrosswordLabelVisible = createElement("p", ["machine-crossword-label-visible", "number"], machineCrosswordCell);
+  machineCrosswordLabelVisible.textContent = match[1];
+}
+
+if (/[1-6]/.test(activityCrossword.puzzle[i][j])) {
+  machineCrosswordInput.classList.add("machine-crossword-cell-red");
+  let machineCrosswordLabelHidden = createElement("p", ["machine-crossword-label-hidden"], machineCrosswordCell);
+
+  if (match) {
+    machineCrosswordLabelHidden.textContent = activityCrossword.puzzle[i][j].slice(-1);
+  }
+  else {
+    machineCrosswordLabelHidden.textContent = activityCrossword.puzzle[i][j].charAt(0);
+  }
+}
         
         // set hardware keyboard functionality
         setHardwareKeyboardFunctionality(machineCrosswordInput,"machine-crossword-input","machine-crossword-table",activityIndex,i,j); 

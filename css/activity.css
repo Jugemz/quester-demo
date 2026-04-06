@@ -46,33 +46,34 @@
         }
         .machine-item-multiple-choice {
             padding-top: 0%;
-            padding-bottom: 2.5%;
+            padding-bottom: .5%;
         }
             .machine-multiple-choice-line {
                 display: flex;
                 align-items: center;
-                margin-top: 1.5%;
+                margin-top: .5%;
             }
             .machine-multiple-choice-line--2col {
                 display: flex;
                 align-items: center;
-                margin-top: 4%;
+                margin-top: 2%;
             }
                 .machine-title {
                     width: 102.6%;
                     padding: 2% 0% 2.2% 4%;
                     margin-left: -3.8%;
                     margin-bottom: 2.5%;
-                    font-family: 'Primer Print Bold', sans-serif;
+                    font-family: 'Grandstander Variable', sans-serif;
                     color: rgba(var(--off-white), 1);
                     background-color: rgba(var(--off-black), 1);
                     line-height: 95%;
                 }
                 .machine-paragraph {
                     width: 100%;
-                    line-height: 120%;
-                    font-family: 'Primer Print Bold', sans-serif;
+                    line-height: 85%;
+                    font-family: 'Grandstander Variable', sans-serif;
                     color: rgba(var(--off-black));
+                    margin-top: 2.5%;
                 }
                 .machine-radio-button {
                     appearance: none;
@@ -126,16 +127,20 @@
                 
                 
                 .machine-highlight-yellow {
+                    text-transform: uppercase !important;
                     color: rgba(var(--gold), 1) !important;
                     background-color: rgba(var(--off-black), 1) !important;
             /* This is the most important line: it stops the letter from being a logo */
-                    font-family: 'Primer Print Bold', sans-serif !important; 
+                    font-family: 'Grandstander Variable', sans-serif !important; 
                     border: 0.2vmin solid rgba(var(--gold), 1);
                     border-radius: 0.5vmin;
                     padding: 0 0.5vmin;
+                    padding-top: .5vmin;
                     display: inline-block !important;
                     visibility: visible !important;
                     opacity: 1 !important;
+                    margin-top: 0.2vmin;
+
                 }
                 .machine-text-red {
                     color: rgba(var(--gold), 1);
@@ -205,7 +210,7 @@
     font-size: 3.5vmin; /* Scaled up for the 7vmin box */
     background: none;
     color: rgba(var(--off-white), 1);
-    font-family: 'Primer Print Bold', sans-serif;
+    font-family: 'Grandstander Variable', sans-serif;
     border: none;
     outline: none;
     display: flex;
@@ -232,7 +237,7 @@
                     color: rgba(var(--gold), 1);
                     pointer-events: none;
                     z-index: 2;
-                    font-family: 'Primer Print Bold', sans-serif;
+                    font-family: 'Grandstander Variable', sans-serif;
                 }                  
 
 /* passage */
@@ -491,7 +496,7 @@
             padding: 0;
             text-align: center;
             color: rgba(var(--off-white), 1);
-            font-family: 'Primer Print Bold', sans-serif;
+            font-family: 'Grandstander Variable', sans-serif;
             caret-color: black;
             caret-color: transparent;
         }
@@ -549,7 +554,7 @@
     caret-color: transparent;
     background-color: rgba(var(--off-black));
     color: rgba(var(--off-white), 1);
-    font-family: 'Primer Print Bold', sans-serif;
+    font-family: 'Grandstander Variable', sans-serif;
     
     cursor: url("../assets/interface/cursor/default.png"), auto;
     cursor: -webkit-image-set(
@@ -977,7 +982,7 @@
     padding: 1% 2%;
     border-radius: 1vmin;
     border: 0.3vmin solid rgba(var(--off-white), 1);
-    font-family: 'Primer Print Bold', sans-serif;
+    font-family: 'Grandstander Variable', sans-serif;
 }
 
 .activity-scene-player-name {
@@ -1082,7 +1087,7 @@
     right: 2.5%;
     background-color: rgba(var(--gold));
     z-index: 9;
-    font-family: 'Primer Print Bold', sans-serif;
+    font-family: 'Grandstander Variable', sans-serif;
     color: rgba(var(--off-black), 1);
     border-radius: 1vmin;
     border: 0.35vmin solid rgba(var(--off-black), 1);
@@ -1175,7 +1180,7 @@
 
 .activity-modal-hint-text {
     width: 100%;
-    font-family: 'Primer Print Bold', sans-serif;
+    font-family: 'Grandstander Variable', sans-serif;
     color: rgba(var(--off-white), 1);
     line-height: 115%;
     text-align: center;
@@ -1190,7 +1195,7 @@
 
 .activity-modal-hint-button {
     background-color: rgba(var(--off-white));
-    font-family: 'Primer Print Bold', sans-serif;
+    font-family: 'Grandstander Variable', sans-serif;
     color: rgba(var(--black), 1);
     display: block;
     margin: 5% auto 0 auto;
@@ -1229,7 +1234,7 @@
     top: 0%;
     color: rgba(var(--gold), 1);
     pointer-events: none;
-    font-family: 'Primer Print Bold', sans-serif;
+    font-family: 'Grandstander Variable', sans-serif;
     line-height: 100%;
     z-index: 5;
     margin-bottom: 5%;

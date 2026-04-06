@@ -29,9 +29,9 @@
 }
 
 @font-face {
-	font-family: 'Primer Print Bold';
-    src: url('../assets/fonts/primerPrint/primer_print_bold-webfont.woff2') format('woff2'),
-         url('../assets/fonts/primerPrint/primer_print_bold-webfont.woff') format('woff');
+	font-family: 'Grandstander Variable';
+    src: url('../assets/fonts/Grandstander/static/Grandstander-Thin.ttf') format('woff2'),
+         url('../assets/fonts/Grandstander/static/Grandstander-Thin.ttf') format('woff');
     font-weight: normal;
     font-style: normal;
     font-display: swap;
@@ -164,7 +164,7 @@ body {
     padding: 1% 3.5%;
     border-radius: 1vmin;
     cursor: pointer;
-	font-family: 'Primer Print Bold';
+	font-family: 'Grandstander Variable';
 	box-sizing: border-box;
 }
 
@@ -290,7 +290,7 @@ button,input {
         }
 
 p {
-    font-family: 'Primer Print Bold', sans-serif;
+    font-family: 'Grandstander Variable', sans-serif;
     color: rgba(var(--off-black),1);
 }
 
@@ -565,7 +565,7 @@ p {
 }
 
 .p-rotate {
-    font-family: 'Primer Print Bold', sans-serif;
+    font-family: 'Grandstander Variable', sans-serif;
     font-size: 6vw;
     color: rgba(var(--off-black),1);
     text-align: center;
@@ -582,7 +582,7 @@ p {
 }
 
 .button__exit {
-    font-family: 'Primer Print Bold';
+    font-family: 'Grandstander Variable';
     background-color: rgba(var(--salmon));
     color: rgba(var(--off-black));
     transition: opacity 0.2s;

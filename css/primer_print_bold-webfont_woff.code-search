@@ -1,0 +1,9 @@
+# Query: primer_print_bold-webfont.woff
+# ContextLines: 1
+
+1 result - 1 file
+
+css\debrief.css:
+  33      src: url('../assets/fonts/Grandstander/Grandstander-VariableFont_wght.ttf') format('truetype'),
+  34:          url('../assets/fonts/Grandstander/primer_print_bold-webfont.woff') format('truetype');
+  35      font-weight: normal;

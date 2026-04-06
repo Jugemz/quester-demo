@@ -90,15 +90,15 @@ p {
 }  
 
 .style-font--default__tag {
-    font-family: 'Primer Print Bold';
+    font-family: 'Grandstander Variable';
 }  
 
 .style-font--default__label {
-    font-family: 'Primer Print Bold';
+    font-family: 'Grandstander Variable';
 }  
 
 .style-font--default__cryptogram {
-    font-family: 'Primer Print Bold';
+    font-family: 'Grandstander Variable';
 }  
 
 .style-font--symbols__tag {
@@ -106,7 +106,7 @@ p {
 }  
 
 .style-font--default__fraction {
-    font-family: 'Primer Print Bold';
+    font-family: 'Grandstander Variable';
     text-align: center;
 }
 
@@ -161,18 +161,18 @@ p {
 }
 
 .style-font--default__title {
-    font-family: 'Primer Print Bold';
+    font-family: 'Grandstander Variable';
     color: rgba(var(--off-black), 1);
 }
 
 .style-font--default__subtitle {
-    font-family: 'Primer Print Bold';
+    font-family: 'Grandstander Variable';
     color: rgba(var(--off-black), 1);
     margin-bottom: 5%;
 }
 
 .style-font--default__paragraph {
-    font-family: 'Primer Print Bold';
+    font-family: 'Grandstander Variable';
     color: rgba(var(--off-black), 1);
 }
 
@@ -816,7 +816,7 @@ p {
 }
 
 .activity-sort__column__text {
-    font-family: 'Primer Print Bold';
+    font-family: 'Grandstander Variable';
     color: rgba(var(--off-black));
     padding: 2% 6%;
     border-radius: 1vmin;
