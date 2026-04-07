@@ -2,8 +2,8 @@ const resource =  {
 
     info: {
         title: "Island of Identity",
-        path: "escape-the-midnight-mall",
-        logo: "resource/escape-the-midnight-mall/assets/branding/preview-3rd-grade.png",
+        path: "escape-identity-island",
+        logo: "resource/escape-identity-island/assets/branding/preview-3rd-grade.png",
         timerLabel: "TIME UNTIL HIGH TIDE:",
     },
 

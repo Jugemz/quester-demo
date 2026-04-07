@@ -1,7 +1,7 @@
 const analyticsArray = [
     {
         title: 'Identity Island', 
-        path: 'escape-the-midnight-mall',
+        path: 'escape-identity-island',
         season: 'All Year',
         resources: [
             /* Reading */

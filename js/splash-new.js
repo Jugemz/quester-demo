@@ -816,7 +816,7 @@ function addFree(){
 
     // load script
     let resourceJS;
-    resourceTheme = "escape-the-midnight-mall"
+    resourceTheme = "escape-identity-island"
     // Reading: 2nd → 3rd → 4th → 5th
     if (index == 0){
       resourceJS = "topic/reading/all/reading_2ndGrade.js"
@@ -848,7 +848,7 @@ function addFree(){
     var scriptElement = document.createElement('script');
     scriptElement.type = 'text/javascript';
     scriptElement.src =
-      'resource/escape-the-midnight-mall/' + resourceJS + '?datetime=' + new Date().getTime();
+      'resource/escape-identity-island/' + resourceJS + '?datetime=' + new Date().getTime();
     scriptsDiv.appendChild(scriptElement);
       
     // preload first set of resource assets
@@ -875,7 +875,7 @@ function addFree(){
       var cutsceneScript = document.createElement('script');
       cutsceneScript.type = 'text/javascript';
       cutsceneScript.src =
-        'resource/escape-the-midnight-mall/cutscene/cutscene.js';
+        'resource/escape-identity-island/cutscene/cutscene.js';
       cutsceneDiv.appendChild(cutsceneScript); 
 
     }

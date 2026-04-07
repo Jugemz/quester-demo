@@ -1249,7 +1249,7 @@ const analyticsArray = [
     // Test
     {
     title: 'Test', 
-        path: 'escape-the-midnight-mall',
+        path: 'escape-identity-island',
         season: 'Test',
         resources: [
             /* Math */
