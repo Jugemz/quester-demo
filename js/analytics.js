@@ -15,7 +15,7 @@ const analyticsArray = [
             {
                 level: ['3rd'],
                 topic: 'Reading Comprehension',
-                resourceJS: 'topic/reading/all/reading_3rdGrade.js',
+                resourceJS: 'topic/reading/all/identity_island-reading.js',
                 googleAnalyticsID: '735Ipsd-H2nhASW-9KlYYsf'
             },
             {
@@ -101,7 +101,7 @@ const analyticsArray = [
     // Identity Island
     {
         title: 'Identity Island', 
-        path: 'escape-the-midnight-mall',
+        path: 'escape-identity-island',
         season: 'All Year',
         resources: [
 
@@ -119,7 +119,7 @@ const analyticsArray = [
             {
                 level: ['3rd'],
                 topic: 'Reading Comprehension',
-                resourceJS: 'topic/reading/all/reading_3rdGrade.js',
+                resourceJS: 'topic/reading/all/identity_island-reading.js',
                 googleAnalyticsID: 'g1aoP6S-G2rXpLa-7hsW9Sq'
             },
             {
@@ -361,7 +361,7 @@ const analyticsArray = [
             {
                 level: ['3rd'],
                 topic: 'Reading Comprehension',
-                resourceJS: 'topic/reading/all/reading_3rdGrade.js',
+                resourceJS: 'topic/reading/all/identity_island-reading.js',
                 googleAnalyticsID: 'tyB92LS-GYycIo1-d1IxZ7k'
             },
             {
@@ -517,7 +517,7 @@ const analyticsArray = [
             {
                 level: ['3rd'],
                 topic: 'Reading Comprehension',
-                resourceJS: 'topic/reading/all/reading_3rdGrade.js',
+                resourceJS: 'topic/reading/all/identity_island-reading.js',
                 googleAnalyticsID: 'Pl83ksW-Da5M5fR-SJAfxs2'
             },
             {
@@ -550,7 +550,7 @@ const analyticsArray = [
             {
                 level: ['3rd'],
                 topic: 'Reading Comprehension',
-                resourceJS: 'topic/reading/all/reading_3rdGrade.js',
+                resourceJS: 'topic/reading/all/identity_island-reading.js',
                 googleAnalyticsID: 'Kpf16Js-dDf3J5g-MMsh7Rw'
             },
             {
@@ -583,7 +583,7 @@ const analyticsArray = [
             {
                 level: ['3rd'],
                 topic: 'Reading Comprehension',
-                resourceJS: 'topic/reading/all/reading_3rdGrade.js',
+                resourceJS: 'topic/reading/all/identity_island-reading.js',
                 googleAnalyticsID: 'g4th5Je-sw1rT8G-r8GtHHs'
             },
             {
@@ -739,7 +739,7 @@ const analyticsArray = [
             {
                 level: ['3rd'],
                 topic: 'Reading Comprehension',
-                resourceJS: 'topic/reading/all/reading_3rdGrade.js',
+                resourceJS: 'topic/reading/all/identity_island-reading.js',
                 googleAnalyticsID: '5d698uy-s9Tamsc-yTAJJsd'
             },
             {
@@ -774,7 +774,7 @@ const analyticsArray = [
             {
                 level: ['3rd'],
                 topic: 'Reading Comprehension',
-                resourceJS: 'topic/reading/all/reading_3rdGrade.js',
+                resourceJS: 'topic/reading/all/identity_island-reading.js',
                 googleAnalyticsID: '9aUpwX-2EE64gw-tY9NoP'
             },
             {
@@ -945,7 +945,7 @@ const analyticsArray = [
             {
                 level: ['3rd'],
                 topic: 'Reading Comprehension',
-                resourceJS: 'topic/reading/all/reading_3rdGrade.js',
+                resourceJS: 'topic/reading/all/identity_island-reading.js',
                 googleAnalyticsID: 'PAucSwE-CCa81eW-988iWcr'
             },
             {
@@ -980,7 +980,7 @@ const analyticsArray = [
             {
                 level: ['3rd'],
                 topic: 'Reading Comprehension',
-                resourceJS: 'topic/reading/all/reading_3rdGrade.js',
+                resourceJS: 'topic/reading/all/identity_island-reading.js',
                 googleAnalyticsID: 'PnOsfDx-7Ka58dU-31SnaoE'
             },
             {
@@ -1015,7 +1015,7 @@ const analyticsArray = [
             {
                 level: ['3rd'],
                 topic: 'Reading Comprehension',
-                resourceJS: 'topic/reading/all/reading_3rdGrade.js',
+                resourceJS: 'topic/reading/all/identity_island-reading.js',
                 googleAnalyticsID: 'Kla58dD-341Nsgy-JKGxLpw'
             },
             {
@@ -1050,7 +1050,7 @@ const analyticsArray = [
             {
                 level: ['3rd'],
                 topic: 'Reading Comprehension',
-                resourceJS: 'topic/reading/all/reading_3rdGrade.js',
+                resourceJS: 'topic/reading/all/identity_island-reading.js',
                 googleAnalyticsID: '7ahXisS-1Tald95-llSa2Ar'
             },
             {
@@ -1227,7 +1227,7 @@ const analyticsArray = [
             {
                 level: ['3rd'],
                 topic: 'Reading Comprehension',
-                resourceJS: 'topic/reading/all/reading_3rdGrade.js',
+                resourceJS: 'topic/reading/all/identity_island-reading.js',
                 googleAnalyticsID: '9dd261G-da4Temd-HsuaKc'
             },
             {

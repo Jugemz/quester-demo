@@ -822,7 +822,7 @@ function addFree(){
       resourceJS = "topic/reading/all/reading_2ndGrade.js"
     }
     if (index == 1){
-      resourceJS = "topic/reading/all/reading_3rdGrade.js"
+      resourceJS = "topic/reading/all/identity_island-reading.js"
     }
     if (index == 2){
       resourceJS = "topic/reading/all/reading_4thGrade.js"
