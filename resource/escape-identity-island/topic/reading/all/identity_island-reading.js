@@ -182,11 +182,14 @@ const resource =  {
                     title: "Answer the questions to untangle your thoughts.",
                     paragraph: [
                     'ACROSS',
+                    ' ',
                         'B. What did the light come to wake? ',
                         'C. What looks the same? ______ Path', 
                         'D. ______ is deep and wide.',
                         'E. The Title of the Poem is __________ of Thoughts?',
+                        ' ',
                         'DOWN',
+                        ' ',
                         'A. A question is a _____ I am on.',
                         'F. What did the Light come to do to the soul?',
                         'G. Jesus came to rule my ______.',
@@ -381,12 +384,12 @@ const resource =  {
                     },
                     {
                         title: "{4.} Using context clues, 'dwell' means:",
-                word: "[C]OM[E]LIVE",
+                word: "[C]OMELIV[E]",
                     },
                 ]
             },
             isHintUsed: false,
-            hint: "Read the notes in the sand. Look for words that mean the same thing as the bracketed words. The yellow letters spell PEACE.",
+            hint: "Read the notes in the sand. Look for words that mean the same thing as the bracketed words. Match the symbols to the correct letters the gold letter will spell the answer.",
             dialogue : {
                 incomplete: "I used to think I was a big, grown-up accident. But look! The map has been restored. If I can decode these clues in the sand, I think I'll find the path to the treasure.",
                 complete: "I'm not a mistake. I'm a Quester, and I've found my place on the map! The storm in my head is over... I have peace."
