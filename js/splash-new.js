@@ -457,7 +457,7 @@ function addAccess(){
     element.addEventListener("click", function() { 
       createModal(
         "What's an access PIN?",
-        "It's a unique <span class = 'p--highlight'>5-digit code</span> needed to play Quester games. If you're a student, your teacher will provide it to you. If you're a teacher, you can find it on the PDF you purchased from us.",
+        "It's a unique <span class = 'p--highlight'>5-digit code</span> needed to play Quester games. If you're a student, your Adult will provide it to you. If you're an Adult, you can find it on the PDF you received from us.",
         "Got it!"
       )
     });
