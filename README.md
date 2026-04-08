@@ -1,6 +1,3 @@
-A great README makes your project look professional and helps the Quester team understand exactly what they are looking at. Since this is a demo, it should focus on the vision and the mission rather than just the code.
-
-Here is a template you can copy and paste into your README.md file. I have kept the formatting clean and em-dash free!
 
 The Quester: Identity Island Digital Demo
 Welcome to the digital extension of The Quester Community. This interactive escape room experience is designed to move children from passive viewers to active participants in the "Great Search for Truth."
