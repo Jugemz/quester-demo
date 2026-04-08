@@ -470,7 +470,7 @@ const resource =  {
         paragraph: [
             "Learning to [s]kate",
             "The [t]ruth about your value", // T
-            "How to find a s[t]ick"
+            "How to [f]ind a stick"
         ],
     }, 
     {
