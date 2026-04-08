@@ -268,7 +268,7 @@ const resource =  {
                         title: "{3.} The three puzzle pieces on the top are:",
                         correctIndex: 1,
                         paragraph: [
-                            "[P]ersonification",
+                            "Personifica[t]ion",
                             "Meta[p]hors",
                             "Simil[e]s",
                         ],
