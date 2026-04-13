@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Clubhouse</title>
+    <meta name="description" content="Clubhouse Summary">
+    <meta name="viewport" content="user-scalable=no, initial-scale=1.0, maximum-scale=1.0, width=device-width, viewport-fit=cover">
+    <meta name="robots" content="noindex">
+
+    <link rel="shortcut icon" href="#">
+    <link rel="stylesheet" href="css/clubhouse.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com/">
+    <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Patrick+Hand&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <div class="content-wrapper">
+<button class="button__exit button__exit--hidden" type="button">EXIT</button>
+
+<p class="p-title">Clubhouse</p>
+<p class="p-subtitle">Your progress across all completed sessions</p>
+
+<div class="summary-card summary-card--hero summary-card--hero-compact">
+    <div class="summary-hero-left">
+        <p class="p-summary-label">CURRENT RUN</p>
+        <p class="p-summary-value clubhouse-stat-finalScore">0</p>
+    </div>
+
+    <div class="summary-hero-center">
+        <p class="p-summary-symbol">+</p>
+    </div>
+
+    <div class="summary-hero-right">
+        <p class="p-summary-label">PREVIOUS TOTAL</p>
+        <p class="p-summary-value clubhouse-stat-previousTotal">0</p>
+    </div>
+</div>
+
+<div class="summary-card summary-card--result summary-card--result-compact">
+    <p class="p-result-title">NEW CUMULATIVE TOTAL</p>
+    <p class="p-result-score clubhouse-stat-newTotal">0</p>
+</div>
+
+<div class="stat-container">
+    <div class="stat stat-sessions stat--hidden">
+        <p class="p-debrief-title">TOTAL<br>SESSIONS</p>
+        <p class="p-debrief-stat clubhouse-stat-totalSessions">0</p>
+    </div>
+
+    <div class="stat stat-average stat--hidden">
+        <p class="p-debrief-title">AVERAGE<br>SCORE</p>
+        <p class="p-debrief-stat clubhouse-stat-averageScore">0</p>
+    </div>
+
+    <div class="stat stat-best stat--hidden">
+        <p class="p-debrief-title">BEST<br>RUN</p>
+        <p class="p-debrief-stat clubhouse-stat-bestScore">0</p>
+    </div>
+
+    <div class="stat stat-streak stat--hidden">
+        <p class="p-debrief-title">WIN<br>STREAK</p>
+        <p class="p-debrief-stat clubhouse-stat-winStreak">0</p>
+    </div>
+
+    <div class="stat stat-rank stat--hidden">
+        <p class="p-debrief-title">PLAYER<br>RANK</p>
+        <p class="p-debrief-stat clubhouse-stat-rank">???</p>
+    </div>
+</div>
+
+<!--<div class="character-panel">
+    <p class="p-history-title">Chosen Character</p>
+    <div class="character-display">
+        <img
+            id="clubhouse-character-image"
+            class="clubhouse-character-image"
+            src="../assets/player/default-character.png"
+            alt="Chosen character"
+        >
+    </div>
+</div>-->
+
+<div class="summary-card treasure-card">
+    <p class="p-result-title">TREASURE PROGRESS</p>
+
+    <div class="treasure-visual">
+        <img
+            class="treasure-image"
+            id="treasure-image"
+            src="assets/website/clubhouse/100.png"
+            alt="Treasure progress chest"
+        >
+    </div>
+
+    <p class="treasure-progress-text">
+        <span class="clubhouse-stat-progressPercent">0%</span>
+        revealed
+    </p>
+
+    <p class="treasure-progress-subtext">
+        <span class="clubhouse-stat-pointsToUnlock">10000</span>
+        points needed to unlock the first tool
+    </p>
+</div>
+
+<div class="summary-card unlock-card">
+    <div class="tool-panel">
+        <button
+            class="button button--primary button-unlock-tool"
+            type="button"
+            style="display: none;"
+        >
+            UNLOCK TOOL
+        </button>
+
+        <div class="tool-display" style="display: none;">
+            <img
+                class="tool-image"
+                src="assets/website/clubhouse/magnifying-glass.png"
+                alt="Magnifying Glass tool"
+            >
+            <p class="tool-display-label">Magnifying Glass Ready</p>
+        </div>
+    </div>
+<div class="clubhouse-cutscene clubhouse-cutscene--hidden" id="clubhouse-cutscene">
+    <div class="clubhouse-cutscene__backdrop"></div>
+
+    <img
+        class="clubhouse-cutscene__background"
+        id="clubhouse-cutscene-background"
+        src=""
+        alt=""
+    >
+
+    <img
+        class="clubhouse-cutscene__character clubhouse-cutscene__character--hidden"
+        id="clubhouse-cutscene-character"
+        src=""
+        alt=""
+    >
+
+    <img
+        class="clubhouse-cutscene__tool clubhouse-cutscene__tool--hidden"
+        id="clubhouse-cutscene-tool"
+        src=""
+        alt=""
+    >
+
+    <div class="clubhouse-cutscene__dialogue">
+        <p class="clubhouse-cutscene__name" id="clubhouse-cutscene-name"></p>
+        <p class="clubhouse-cutscene__text" id="clubhouse-cutscene-text"></p>
+        <p class="clubhouse-cutscene__hint">Click to continue</p>
+    </div>
+</div>
+<div class="summary-card unlock-card">
+    <p class="p-result-title">FIRST TOOL</p>
+    <p class="unlock-tool-status clubhouse-stat-unlockStatus">LOCKED</p>
+</div>
+            </div>
+
+            <div class="score-container score-container--hidden">
+                <div class="clubhouse-score-meter"></div>
+            </div>
+
+            <div class="medal-container medal-container--hidden">
+                <div class="div-medal-container" id="div-medal-container-1">
+                    <p class="p-debrief-title debrief-stat-rank debrief-stat-rank--light-brown clubhouse-rank-label-1">???</p>
+                    <img class="img-medal img-medal--hidden" id="img-medal-1" src="assets/debrief/medal/medal-1-hidden.png" alt="Rank 1 medal">
+                </div>
+
+                <div class="div-medal-container" id="div-medal-container-2">
+                    <p class="p-debrief-title debrief-stat-rank debrief-stat-rank--light-brown clubhouse-rank-label-2">???</p>
+                    <img class="img-medal img-medal--hidden" id="img-medal-2" src="assets/debrief/medal/medal-2-hidden.png" alt="Rank 2 medal">
+                </div>
+
+                <div class="div-medal-container" id="div-medal-container-3">
+                    <p class="p-debrief-title debrief-stat-rank debrief-stat-rank--light-brown clubhouse-rank-label-3">???</p>
+                    <img class="img-medal img-medal--hidden" id="img-medal-3" src="assets/debrief/medal/medal-3-hidden.png" alt="Rank 3 medal">
+                </div>
+
+                <div class="div-medal-container" id="div-medal-container-4">
+                    <p class="p-debrief-title debrief-stat-rank debrief-stat-rank--light-brown clubhouse-rank-label-4">???</p>
+                    <img class="img-medal img-medal--hidden" id="img-medal-4" src="assets/debrief/medal/medal-4-hidden.png" alt="Rank 4 medal">
+                </div>
+
+                <div class="div-medal-container" id="div-medal-container-5">
+                    <p class="p-debrief-title debrief-stat-rank debrief-stat-rank--light-brown clubhouse-rank-label-5">???</p>
+                    <img class="img-medal img-medal--hidden" id="img-medal-5" src="assets/debrief/medal/medal-5-hidden.png" alt="Rank 5 medal">
+                </div>
+            </div>
+
+            <div class="history-panel">
+                <p class="p-history-title">Recent Score History</p>
+
+                <div class="history-list">
+                    <div class="history-row">
+                        <p class="history-label">Session 1</p>
+                        <p class="history-value clubhouse-history-score-1">0</p>
+                    </div>
+                    <div class="history-row">
+                        <p class="history-label">Session 2</p>
+                        <p class="history-value clubhouse-history-score-2">0</p>
+                    </div>
+                    <div class="history-row">
+                        <p class="history-label">Session 3</p>
+                        <p class="history-value clubhouse-history-score-3">0</p>
+                    </div>
+                    <div class="history-row">
+                        <p class="history-label">Session 4</p>
+                        <p class="history-value clubhouse-history-score-4">0</p>
+                    </div>
+                    <div class="history-row">
+                        <p class="history-label">Session 5</p>
+                        <p class="history-value clubhouse-history-score-5">0</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="action-container action-container--hidden">
+                <button class="button button--primary button-save-score" type="button">SAVE SCORE</button>
+                <button class="button button--primary button-save-exit" type="button">SAVE AND EXIT</button>
+                <button class="button button--secondary button-continue" type="button">CONTINUE</button>
+                <button class="button button--secondary button-reset-history" type="button">RESET TOTAL</button>
+            </div>
+
+        </section>
+
+    </div>
+
+    <div class="page-wrapper page-wrapper--visible"></div>
+
+    <script src="js/unlock-cutscene.js"></script>
+    <script src="js/clubhouse.js"></script>
+</body>
+</html>
