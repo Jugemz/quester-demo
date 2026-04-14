@@ -1,22 +1,30 @@
 let activeToolKey = null;
 
-function setActiveTool(toolKey) {
-    activeToolKey = activeToolKey === toolKey ? null : toolKey;
-    updateToolButtonStates();
-    updateToolCursorState();
-}
-
 function getActiveTool() {
     return activeToolKey;
 }
 
-function updateToolCursorState() {
-    const body = document.body;
+function setActiveTool(toolKey) {
+    activeToolKey = activeToolKey === toolKey ? null : toolKey;
+    updateToolButtonStates();
+    updateToolCursorState();
 
-    body.classList.remove("tool-cursor--magnifier-active");
+    if (typeof refreshCurrentSceneToolState === "function") {
+        refreshCurrentSceneToolState();
+    }
+}
+
+function clearActiveTool() {
+    activeToolKey = null;
+    updateToolButtonStates();
+    updateToolCursorState();
+}
+
+function updateToolCursorState() {
+    document.body.classList.remove("tool-cursor--magnifier-active");
 
     if (activeToolKey === "magnifier") {
-        body.classList.add("tool-cursor--magnifier-active");
+        document.body.classList.add("tool-cursor--magnifier-active");
     }
 }
 
@@ -27,15 +35,34 @@ function updateToolButtonStates() {
     });
 }
 
+function showToolboxUI() {
+    const mount = document.getElementById("toolbox-ui");
+    if (!mount) return;
+
+    mount.classList.remove("state-display-none");
+}
+
+function hideToolboxUI() {
+    const mount = document.getElementById("toolbox-ui");
+    if (!mount) return;
+
+    mount.classList.add("state-display-none");
+}
+
 function renderToolboxUI() {
     const mount = document.getElementById("toolbox-ui");
     if (!mount) return;
 
     mount.innerHTML = "";
 
-    Object.keys(toolRegistry).forEach(toolKey => {
-        if (!isToolUnlocked(toolKey)) return;
+    const unlockedToolKeys = getUnlockedToolKeys();
 
+    if (!unlockedToolKeys.length) {
+        hideToolboxUI();
+        return;
+    }
+
+    unlockedToolKeys.forEach(toolKey => {
         const tool = getToolDefinition(toolKey);
         if (!tool) return;
 
@@ -44,6 +71,7 @@ function renderToolboxUI() {
         button.className = "toolbox-button";
         button.setAttribute("data-tool-key", toolKey);
         button.setAttribute("aria-label", tool.description);
+        button.title = tool.description;
 
         button.innerHTML = `
             <img class="toolbox-button__icon" src="${tool.icon}" alt="${tool.name}">
@@ -56,5 +84,10 @@ function renderToolboxUI() {
         mount.appendChild(button);
     });
 
+    showToolboxUI();
     updateToolButtonStates();
 }
+
+document.addEventListener("DOMContentLoaded", function () {
+    renderToolboxUI();
+});

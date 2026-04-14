@@ -10,13 +10,20 @@ const resource =  {
     activityArray: [
         /* The Mirror POND */
         {
-            title: "THE PERCEPTION POND",
-            characterName: "FISH",
-            topic: "Main Idea",
-            assets: {
-                nodeBackground: "Mirror_Pond.png",
-                characterShopkeeper: "Fish.png",
-                activityBackground: "Mirror_Pond.png"
+             title: "THE PERCEPTION POND",
+    characterName: "FISH",
+    topic: "Main Idea",
+    assets: {
+        nodeBackground: "Mirror_Pond.png",
+        characterShopkeeper: "Fish.png",
+        magnifierCharacterShopkeeper: "Fish_mg.png",
+        activityBackground: "Mirror_Pond.png"
+    },
+    tools: {
+        magnifier: {
+            tag: "mg-detail"
+        }
+    
             },
             code: "LIFE",
             userCode: ["","","",""],

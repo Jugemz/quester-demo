@@ -851,7 +851,6 @@
     background-position: center center;
     background-color: rgba(var(--off-black), 1);
 }
-
 .activity-scene-character {
     position: absolute;
     width: 42%;
@@ -859,20 +858,37 @@
     bottom: -5.5%;
     left: 1.5%;
     z-index: 4;
+    transition: transform 0.3s;
+    transform-origin: center bottom;
+    will-change: transform;
+    overflow: hidden;
+}
+
+.activity-scene-character-base,
+.activity-scene-character-overlay {
+    position: absolute;
+    inset: 0;
     background-size: 99%;
     background-repeat: no-repeat;
     background-position: center;
-    transition: transform 0.3s;   
-    transform-origin: center bottom; 
-    will-change: transform;
+}
+
+.activity-scene-character-overlay {
+    opacity: 0;
+    transition: opacity 0.2s ease;
+    pointer-events: none;
+}
+
+.activity-scene-character--tool-hover .activity-scene-character-overlay {
+    opacity: 1;
 }
 
 .activity-scene-character--hidden {
-    transform: translate(-150%,0%);
+    transform: translate(-150%, 0%);
 }
 
 .activity-scene-character--visible {
-    transform: translate(-5%,0%);
+    transform: translate(-5%, 0%);
 }
 
 .activity-scene-dialogue-trail-player {

@@ -588,6 +588,98 @@ button, input[type="submit"], input[type="reset"] {
 	border-radius: 0.5vmin;
 }
 
+.toolbox-ui {
+    position: absolute;
+    top: 1.2%;
+    left: 1.2%;
+    z-index: 950;
+    display: flex;
+    gap: 0.5rem;
+    pointer-events: auto;
+}
+
+.toolbox-button {
+    width: 3.6rem;
+    height: 3.6rem;
+    border: 0.22rem solid rgba(var(--off-black), 1);
+    border-radius: 0.7rem;
+    background-color: rgba(var(--off-white), 1);
+    padding: 0.35rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.12s, background-color 0.12s, box-shadow 0.12s;
+}
+
+.toolbox-button:hover {
+    transform: scale(1.04);
+    background-color: rgba(var(--gold-light), 1);
+}
+
+.toolbox-button--active {
+    background-color: rgba(var(--gold), 1);
+    box-shadow: 0 0 0 0.18rem rgba(var(--salmon-light), 1);
+}
+
+.toolbox-button__icon {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    pointer-events: none;
+}
+
+.tool-target--hover {
+    outline: 0.24rem solid rgba(var(--gold), 1);
+    outline-offset: 0.12rem;
+    cursor: pointer;
+}
+
+.tool-reveal {
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.2s ease;
+}
+
+.tool-reveal--visible {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.tool-hover-reveal {
+    opacity: 0;
+    transition: opacity 0.15s ease;
+}
+
+.tool-hover-reveal--visible {
+    opacity: 1;
+}
+
+.magnifier-popup {
+    position: absolute;
+    left: 50%;
+    bottom: 6%;
+    transform: translateX(-50%);
+    max-width: 28rem;
+    padding: 0.9rem 1rem;
+    background-color: rgba(var(--off-white), 1);
+    border: 0.24rem solid rgba(var(--off-black), 1);
+    border-radius: 0.8rem;
+    z-index: 980;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.2s ease;
+    text-align: center;
+    line-height: 1.3;
+}
+
+.magnifier-popup--visible {
+    opacity: 1;
+}
+
+.tool-cursor--magnifier-active,
+.tool-cursor--magnifier-active * {
+    cursor: url("../assets/interface/cursor/magnifier-cursor.png") 16 16, zoom-in !important;
+}
 
 @keyframes screenFlicker {
 	0% {

@@ -1,3 +1,5 @@
+const TOOL_STORAGE_KEY = "clubhouseData";
+
 const toolRegistry = {
     magnifier: {
         id: "mg-tool",
@@ -13,12 +15,16 @@ const toolRegistry = {
 
 function getClubhouseData() {
     try {
-        const raw = localStorage.getItem("clubhouseData");
+        const raw = localStorage.getItem(TOOL_STORAGE_KEY);
         return raw ? JSON.parse(raw) : null;
     } catch (error) {
         console.error("Could not parse clubhouseData:", error);
         return null;
     }
+}
+
+function getToolDefinition(toolKey) {
+    return toolRegistry[toolKey] || null;
 }
 
 function isToolUnlocked(toolKey) {
@@ -36,6 +42,6 @@ function isToolUnlocked(toolKey) {
     }
 }
 
-function getToolDefinition(toolKey) {
-    return toolRegistry[toolKey] || null;
+function getUnlockedToolKeys() {
+    return Object.keys(toolRegistry).filter(toolKey => isToolUnlocked(toolKey));
 }
