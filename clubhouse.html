@@ -101,7 +101,7 @@
 
     <p class="treasure-progress-subtext">
         <span class="clubhouse-stat-pointsToUnlock">10000</span>
-        points needed to unlock the first tool
+        points needed to unlock the new tool
     </p>
 </div>
 
@@ -116,14 +116,28 @@
         </button>
 
         <div class="tool-display" style="display: none;">
+    <div class="tool-bench">
+        <div class="tool-bench-item">
             <img
                 class="tool-image"
                 src="assets/website/clubhouse/magnifying-glass.png"
                 alt="Magnifying Glass tool"
             >
-            <p class="tool-display-label">Magnifying Glass Ready</p>
+            <p class="tool-display-label">Magnifying Glass</p>
+        </div>
+
+        <div class="tool-bench-item" id="decoder-bench-item" style="display: none;">
+            <img
+                class="tool-image"
+                src="assets/website/clubhouse/decoder.png"
+                alt="Decoder reference"
+            >
+            <p class="tool-display-label">Decoder</p>
+            <p class="tool-display-sublabel">Book, Chapter, Verse, Word</p>
         </div>
     </div>
+</div>
+</div>
 <div class="clubhouse-cutscene clubhouse-cutscene--hidden" id="clubhouse-cutscene">
     <div class="clubhouse-cutscene__backdrop"></div>
 
@@ -151,11 +165,14 @@
     <div class="clubhouse-cutscene__dialogue">
         <p class="clubhouse-cutscene__name" id="clubhouse-cutscene-name"></p>
         <p class="clubhouse-cutscene__text" id="clubhouse-cutscene-text"></p>
-        <p class="clubhouse-cutscene__hint">Click to continue</p>
+        <p class="clubhouse-cutscene__hint">Click to continue ➡ </p>
     </div>
 </div>
 <div class="summary-card unlock-card">
-    <p class="p-result-title">FIRST TOOL</p>
+   <p class="treasure-progress-subtext">
+    <span class="clubhouse-stat-pointsToUnlock">10000</span>
+    <span class="clubhouse-progress-copy">points needed to unlock the new tool</span>
+</p>
     <p class="unlock-tool-status clubhouse-stat-unlockStatus">LOCKED</p>
 </div>
             </div>

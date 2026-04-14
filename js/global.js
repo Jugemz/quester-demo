@@ -50,6 +50,34 @@ let openState = {
   menu: false,
   hint: false
 }
+function parseInlineToolText(text) {
+  if (!text || typeof text !== "string") {
+    return "";
+  }
+
+  const parts = text.split(/(\[.*?\]|\*M\*\(.*?\))/g);
+
+  return parts.map(part => {
+    if (!part) {
+      return "";
+    }
+
+    // Underline token: [text]
+    if (part.startsWith("[") && part.endsWith("]")) {
+      const content = part.slice(1, -1);
+      return `<span class="paragraph--underline">${content}</span>`;
+    }
+
+    // Magnifier token: *M*(text)
+    if (part.startsWith("*M*(") && part.endsWith(")")) {
+      const content = part.slice(4, -1);
+      return `<span class="mg-font-target" data-tool-tag="mg-font">${content}</span>`;
+    }
+
+    // Normal text
+    return part;
+  }).join("");
+}
 let setup = {
   playerCount: [1,2,3,4,5],
   activityCount: [1,2,3,4,5],

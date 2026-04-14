@@ -35,7 +35,7 @@ function drawCrossword(activityIndex){
   if (resource.challengeArray){
     for (let i = 0; i < activityCrossword.paragraph.length; i++) {
         let crosswordQuestion = createElement('p', ['machine-paragraph', 'machine-paragraph-crossword'], machineItemCrosswordQuestions);
-        crosswordQuestion.innerHTML = styleText(activityCrossword.paragraph[i]);
+        crosswordQuestion.innerHTML = styleText(parseToolTags(activityCrossword.paragraph[i]));
         if (i < activityCrossword.paragraph.length - 1) {
             machineItemCrosswordQuestions.appendChild(crosswordQuestion);
             machineItemCrosswordQuestions.appendChild(document.createElement('br'));

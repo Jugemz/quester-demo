@@ -29,6 +29,11 @@ const unlockStatusEl = document.querySelector(".clubhouse-stat-unlockStatus");
 
 const unlockToolButton = document.querySelector(".button-unlock-tool");
 const toolDisplayEl = document.querySelector(".tool-display");
+const unlockToolTitleEl = document.querySelector(".clubhouse-tool-title");
+const unlockProgressCopyEl = document.querySelector(".clubhouse-progress-copy");
+const toolDisplayImageEl = document.querySelector(".tool-image");
+const toolDisplayLabelEl = document.querySelector(".tool-display-label");
+const decoderBenchItemEl = document.getElementById("decoder-bench-item");
 
 const historyEls = [
     document.querySelector(".clubhouse-history-score-1"),
@@ -48,7 +53,8 @@ const statElements = [
 
 const rankArray = ["TOT", "PAL", "CREW", "DOOD", "QUAVERING QUAZARS"];
 const storageKey = "clubhouseData";
-const TOOL_UNLOCK_SCORE = 10000;
+const MAGNIFIER_UNLOCK_SCORE = 10000;
+const DECODER_UNLOCK_SCORE = 25000;
 
 let hasSavedThisView = false;
 let currentRunId = "";
@@ -99,8 +105,11 @@ function sanitizeContinueUrl(url) {
     return trimmed;
 }
 
-function getTreasureImageFromTotal(total) {
-    const percentRevealed = Math.max(0, Math.min(100, Math.floor((total / TOOL_UNLOCK_SCORE) * 100)));
+function getTreasureImageFromProgress(progressTotal, goalTotal) {
+    const percentRevealed = Math.max(
+        0,
+        Math.min(100, Math.floor((progressTotal / goalTotal) * 100))
+    );
 
     if (percentRevealed >= 100) return "assets/website/clubhouse/10.png";
     if (percentRevealed >= 90) return "assets/website/clubhouse/20.png";
@@ -116,30 +125,90 @@ function getTreasureImageFromTotal(total) {
     return "assets/website/clubhouse/101.png";
 }
 
-function getPointsRemainingToUnlock(total) {
-    return Math.max(0, TOOL_UNLOCK_SCORE - total);
+function getCurrentUnlockPhase(unlockedTools = {}) {
+    if (!unlockedTools.magnifierRevealed) {
+        return "magnifier";
+    }
+
+    if (!unlockedTools.decoderRevealed) {
+        return "decoder";
+    }
+
+    return "complete";
+}
+
+function getCurrentProgressInfo(total, unlockedTools = {}) {
+    const phase = getCurrentUnlockPhase(unlockedTools);
+
+    if (phase === "magnifier") {
+        return {
+            phase: "magnifier",
+            goal: MAGNIFIER_UNLOCK_SCORE,
+            progress: Math.max(0, Math.min(total, MAGNIFIER_UNLOCK_SCORE)),
+            pointsRemaining: Math.max(0, MAGNIFIER_UNLOCK_SCORE - total),
+            title: "FIRST TOOL",
+            subtext: "points needed to unlock the first tool"
+        };
+    }
+
+    if (phase === "decoder") {
+        return {
+            phase: "decoder",
+            goal: DECODER_UNLOCK_SCORE,
+            progress: Math.max(0, Math.min(total, DECODER_UNLOCK_SCORE)),
+            pointsRemaining: Math.max(0, DECODER_UNLOCK_SCORE - total),
+            title: "DECODER",
+            subtext: "points needed to reveal the decoder"
+        };
+    }
+
+    return {
+        phase: "complete",
+        goal: DECODER_UNLOCK_SCORE,
+        progress: DECODER_UNLOCK_SCORE,
+        pointsRemaining: 0,
+        title: "DECODER",
+        subtext: "decoder revealed"
+    };
 }
 
 function getUnlockState(
     total,
-    unlockedTools = { magnifier: false, magnifierRevealed: false }
+    unlockedTools = {
+        magnifier: false,
+        magnifierRevealed: false,
+        decoderRevealed: false
+    }
 ) {
     return {
-        magnifier: Boolean(unlockedTools.magnifier) || total >= TOOL_UNLOCK_SCORE,
-        magnifierRevealed: Boolean(unlockedTools.magnifierRevealed)
+        magnifier: Boolean(unlockedTools.magnifier) || total >= MAGNIFIER_UNLOCK_SCORE,
+        magnifierRevealed: Boolean(unlockedTools.magnifierRevealed),
+        decoderRevealed: Boolean(unlockedTools.decoderRevealed),
+        decoderReady:
+            Boolean(unlockedTools.magnifierRevealed) &&
+            total >= DECODER_UNLOCK_SCORE &&
+            !Boolean(unlockedTools.decoderRevealed)
     };
 }
 
 function updateTreasureUI(
     total,
-    unlockedTools = { magnifier: false, magnifierRevealed: false }
+    unlockedTools = {
+        magnifier: false,
+        magnifierRevealed: false,
+        decoderRevealed: false
+        
+    }
 ) {
-    const percentRevealed = Math.max(0, Math.min(100, Math.floor((total / TOOL_UNLOCK_SCORE) * 100)));
-    const pointsRemaining = getPointsRemainingToUnlock(total);
     const unlockState = getUnlockState(total, unlockedTools);
+    const progressInfo = getCurrentProgressInfo(total, unlockedTools);
+    const percentRevealed = Math.max(
+        0,
+        Math.min(100, Math.floor((progressInfo.progress / progressInfo.goal) * 100))
+    );
 
     if (treasureImageEl) {
-        treasureImageEl.src = getTreasureImageFromTotal(total);
+        treasureImageEl.src = getTreasureImageFromProgress(progressInfo.progress, progressInfo.goal);
     }
 
     if (progressPercentEl) {
@@ -147,7 +216,15 @@ function updateTreasureUI(
     }
 
     if (pointsToUnlockEl) {
-        pointsToUnlockEl.textContent = pointsRemaining === 0 ? "0" : `${pointsRemaining}`;
+        pointsToUnlockEl.textContent = `${progressInfo.pointsRemaining}`;
+    }
+
+    if (unlockToolTitleEl) {
+        unlockToolTitleEl.textContent = progressInfo.title;
+    }
+
+    if (unlockProgressCopyEl) {
+        unlockProgressCopyEl.textContent = progressInfo.subtext;
     }
 
     if (unlockStatusEl) {
@@ -157,26 +234,48 @@ function updateTreasureUI(
             "unlock-tool-status--unlocked"
         );
 
-        if (!unlockState.magnifier) {
-            unlockStatusEl.textContent = "LOCKED";
-            unlockStatusEl.classList.add("unlock-tool-status--locked");
-        } else if (!unlockState.magnifierRevealed) {
-            unlockStatusEl.textContent = "READY TO UNLOCK";
-            unlockStatusEl.classList.add("unlock-tool-status--ready");
+        if (!unlockState.magnifierRevealed) {
+            if (!unlockState.magnifier) {
+                unlockStatusEl.textContent = "LOCKED";
+                unlockStatusEl.classList.add("unlock-tool-status--locked");
+            } else {
+                unlockStatusEl.textContent = "READY TO UNLOCK";
+                unlockStatusEl.classList.add("unlock-tool-status--ready");
+            }
+        } else if (!unlockState.decoderRevealed) {
+            if (!unlockState.decoderReady) {
+                unlockStatusEl.textContent = "LOCKED";
+                unlockStatusEl.classList.add("unlock-tool-status--locked");
+            } else {
+                unlockStatusEl.textContent = "READY TO REVEAL";
+                unlockStatusEl.classList.add("unlock-tool-status--ready");
+            }
         } else {
-            unlockStatusEl.textContent = "UNLOCKED";
+            unlockStatusEl.textContent = "REVEALED";
             unlockStatusEl.classList.add("unlock-tool-status--unlocked");
         }
     }
 
     if (unlockToolButton) {
-        unlockToolButton.style.display =
-            unlockState.magnifier && !unlockState.magnifierRevealed ? "inline-block" : "none";
+        const showButton =
+            (!unlockState.magnifierRevealed && unlockState.magnifier) ||
+            (!unlockState.decoderRevealed && unlockState.decoderReady);
+
+        unlockToolButton.style.display = showButton ? "inline-block" : "none";
+        unlockToolButton.textContent = !unlockState.magnifierRevealed
+            ? "UNLOCK TOOL"
+            : "REVEAL DECODER";
     }
 
     if (toolDisplayEl) {
-        toolDisplayEl.style.display = unlockState.magnifierRevealed ? "flex" : "none";
-    }
+    toolDisplayEl.style.display = unlockState.magnifierRevealed ? "flex" : "none";
+}
+
+if (decoderBenchItemEl) {
+    decoderBenchItemEl.style.display = unlockState.decoderRevealed ? "flex" : "none";
+}
+
+   
 }
 
 function loadClubhouseData() {
@@ -193,7 +292,8 @@ function loadClubhouseData() {
                 savedRunIds: [],
                 unlockedTools: {
                     magnifier: false,
-                    magnifierRevealed: false
+                    magnifierRevealed: false,
+                    decoderRevealed: false
                 }
             };
         }
@@ -215,11 +315,13 @@ function loadClubhouseData() {
                 parsed.unlockedTools && typeof parsed.unlockedTools === "object"
                     ? {
                         magnifier: Boolean(parsed.unlockedTools.magnifier),
-                        magnifierRevealed: Boolean(parsed.unlockedTools.magnifierRevealed)
+                        magnifierRevealed: Boolean(parsed.unlockedTools.magnifierRevealed),
+                        decoderRevealed: Boolean(parsed.unlockedTools.decoderRevealed)
                     }
                     : {
                         magnifier: false,
-                        magnifierRevealed: false
+                        magnifierRevealed: false,
+                        decoderRevealed: false
                     }
         };
     } catch (error) {
@@ -234,7 +336,8 @@ function loadClubhouseData() {
             savedRunIds: [],
             unlockedTools: {
                 magnifier: false,
-                magnifierRevealed: false
+                magnifierRevealed: false,
+                decoderRevealed: false
             }
         };
     }
@@ -381,7 +484,10 @@ function updateUI(finalScore, data, alreadySaved = false) {
     const storedData = loadClubhouseData();
     const unlockTools = alreadySaved
         ? storedData.unlockedTools
-        : getUnlockState(data.newTotal, storedData.unlockedTools);
+        : {
+            ...storedData.unlockedTools,
+            ...getUnlockState(data.newTotal, storedData.unlockedTools)
+        };
 
     updateTreasureUI(data.newTotal, unlockTools);
     updateButtonsAfterSave(alreadySaved);
@@ -444,7 +550,8 @@ function persistPreviewData() {
         savedRunIds: [...storedData.savedRunIds, runIdToUse].slice(-100),
         unlockedTools: {
             magnifier: unlockState.magnifier,
-            magnifierRevealed: Boolean(storedData.unlockedTools.magnifierRevealed)
+            magnifierRevealed: Boolean(storedData.unlockedTools.magnifierRevealed),
+            decoderRevealed: Boolean(storedData.unlockedTools.decoderRevealed)
         }
     };
 
@@ -472,22 +579,47 @@ function finalizeMagnifierUnlock() {
     updateTreasureUI(updatedData.total, updatedData.unlockedTools);
 }
 
-function unlockMagnifierTool() {
+function finalizeDecoderReveal() {
+    const storedData = loadClubhouseData();
+
+    const updatedData = {
+        ...storedData,
+        unlockedTools: {
+            ...storedData.unlockedTools,
+            decoderRevealed: true
+        }
+    };
+
+    saveClubhouseData(updatedData);
+    updateTreasureUI(updatedData.total, updatedData.unlockedTools);
+}
+
+function unlockCurrentProgressionReward() {
     const storedData = loadClubhouseData();
     const unlockState = getUnlockState(storedData.total, storedData.unlockedTools);
 
-    if (!unlockState.magnifier || unlockState.magnifierRevealed) {
+    if (!unlockState.magnifierRevealed && unlockState.magnifier) {
+        if (typeof playUnlockCutscene !== "function") {
+            finalizeMagnifierUnlock();
+            return;
+        }
+
+        playUnlockCutscene("magnifier", function () {
+            finalizeMagnifierUnlock();
+        });
         return;
     }
 
-    if (typeof playUnlockCutscene !== "function") {
-        finalizeMagnifierUnlock();
-        return;
-    }
+    if (!unlockState.decoderRevealed && unlockState.decoderReady) {
+        if (typeof playUnlockCutscene !== "function") {
+            finalizeDecoderReveal();
+            return;
+        }
 
-    playUnlockCutscene("magnifier", function () {
-        finalizeMagnifierUnlock();
-    });
+        playUnlockCutscene("decoder", function () {
+            finalizeDecoderReveal();
+        });
+    }
 }
 
 function goToContinueUrl() {
@@ -544,7 +676,7 @@ function wireButtons() {
 
     if (unlockToolButton) {
         unlockToolButton.addEventListener("click", function () {
-            unlockMagnifierTool();
+            unlockCurrentProgressionReward();
         });
     }
 }

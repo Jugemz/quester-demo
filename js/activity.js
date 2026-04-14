@@ -230,7 +230,16 @@ function getActivityBackgroundAssetForActivity(activity) {
 
   return activity.assets.activityBackground || "";
 }
+function parseToolTags(text) {
+    if (!text) return "";
 
+    // *M*(text) → wrap with magnifier tag
+    text = text.replace(/\*M\*\((.*?)\)/g, function(match, content) {
+        return `<span data-tool-tag="mg-font" class="tool-target">${content}</span>`;
+    });
+
+    return text;
+}
 /////////////////////////////////////////
 // sync all code input updates
 /////////////////////////////////////////

@@ -9,7 +9,7 @@ const toolRegistry = {
         unlockKey: "magnifier",
         description: "Inspect hidden clue details.",
         usageType: "ingame-hover",
-        supportedTags: ["mg-clue", "mg-reveal", "mg-detail"]
+        supportedTags: ["mg-clue", "mg-reveal", "mg-detail", "mg-font"]
     }
 };
 

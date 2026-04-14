@@ -665,7 +665,28 @@ button {
 .tool-display-label {
     font-size: clamp(0.82rem, 0.92vw, 1rem);
 }
+.tool-bench {
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    gap: 1.2rem;
+    flex-wrap: wrap;
+}
 
+.tool-bench-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.25rem;
+    text-align: center;
+    max-width: 160px;
+}
+
+.tool-display-sublabel {
+    font-size: clamp(0.72rem, 0.82vw, 0.9rem);
+    line-height: 1.15;
+    color: rgba(var(--brown-dark), 1);
+}
 .clubhouse-cutscene {
     position: fixed;
     inset: 0;

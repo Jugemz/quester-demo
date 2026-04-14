@@ -20,6 +20,15 @@ function updateHoverRevealState(element, shouldReveal) {
     });
 }
 
+function updateMagnifierFontState(element, shouldActivate) {
+    if (!element) return;
+
+    const tag = element.getAttribute("data-tool-tag");
+    if (tag !== "mg-font") return;
+
+    element.classList.toggle("mg-font-target--active", shouldActivate);
+}
+
 function handleToolTagInteraction(toolKey, element) {
     if (toolKey !== "magnifier") return;
 
@@ -62,12 +71,13 @@ function initializeToolTags() {
         const element = findTaggedElement(event.target);
         if (!element) return;
 
-        const activeTool = getActiveTool();
+        const activeTool = typeof getActiveTool === "function" ? getActiveTool() : null;
         const tag = element.getAttribute("data-tool-tag");
-        const isMatch = activeTool && isTagSupportedByTool(activeTool, tag);
+        const isMatch = Boolean(activeTool && isTagSupportedByTool(activeTool, tag));
 
-        element.classList.toggle("tool-target--hover", Boolean(isMatch));
-        updateHoverRevealState(element, Boolean(isMatch));
+        element.classList.toggle("tool-target--hover", isMatch);
+        updateHoverRevealState(element, isMatch);
+        updateMagnifierFontState(element, isMatch);
     });
 
     document.addEventListener("mouseout", function (event) {
@@ -81,13 +91,14 @@ function initializeToolTags() {
 
         element.classList.remove("tool-target--hover");
         updateHoverRevealState(element, false);
+        updateMagnifierFontState(element, false);
     });
 
     document.addEventListener("click", function (event) {
         const element = findTaggedElement(event.target);
         if (!element) return;
 
-        const activeTool = getActiveTool();
+        const activeTool = typeof getActiveTool === "function" ? getActiveTool() : null;
         const tag = element.getAttribute("data-tool-tag");
 
         if (!activeTool) return;

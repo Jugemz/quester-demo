@@ -159,13 +159,13 @@ const resource =  {
                         author:    "By Quester",
                         paragraph: [
                             [
-                                'I search within to find my name',
+                                'I search wi*M*(th)in to find my name',
                                 'But every path looks just the same.',
-                                'A cyclone swirls inside my head,',
+                                'A cyclone swi*M*(r)ls inside my head,',
                                 'With tangled knots of doubt and dread.',
                             ],
                             [
-                                'The darkness here is deep and wide,',
+                                'The darkness here is d*M*(ee)p and wide,',
                                 'With nowhere left for me to hide.',
                                 'I need a friend to take my hand,',
                                 'And lead me to a brighter land."'
@@ -221,6 +221,7 @@ const resource =  {
             assets: {
                 nodeBackground: "Palm_Grove.png",
                 characterShopkeeper: "Lizard.png",
+                magnifierCharacterShopkeeper: "Lizard_mg.png",
                 activityBackground: "Palm_Grove.png",
             },
             code: "HOPE",
@@ -320,7 +321,7 @@ const resource =  {
                     passage: [
                         {
                             text: {
-                                paragraph: "1. I felt [disoriented] and lost in the dark cave."
+                                paragraph: "1. I felt [disoriented] and l*M*(o)st i*M*(n) the dark cav*M*(e)."
                             },
                             style: {
                                 material: "style-material--paper",
@@ -411,6 +412,7 @@ const resource =  {
             assets: {
                 nodeBackground: "Truthful_Treasure.png",
                 characterShopkeeper: "Paraclete.png",
+                magnifierCharacterShopkeeper: "Paraclete_mg.png",
                 activityBackground: "Truthful_Treasure.png",
             },
             code: "TRUTH",

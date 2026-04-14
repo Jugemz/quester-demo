@@ -1284,7 +1284,14 @@
         opacity: 0.6;
     }   
 }
+.mg-font-target {
+    transition: color 0.2s ease, font-family 0.2s ease;
+}
 
+.mg-font-target--active {
+    color: rgba(var(--gold), 1);
+    font-family: 'Primer-Print Variable', sans-serif;
+}
 .code-box-button:active {
     background-image: url(../assets/interface/button/finish/active.png);
 }

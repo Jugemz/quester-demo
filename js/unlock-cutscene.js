@@ -2,15 +2,14 @@ const unlockCutsceneData = {
     magnifier: {
         intro: [
             {
-                speaker: "Quester",
+                speaker: "The Quester" ,
                 text: "Well done, Quester... you have uncovered enough truthful treasure to earn a new tool.",
                 background: "assets/website/clubhouse/club-background.png",
                 character: "assets/cutscene/Quester-closeup.png",
                 toolImage: ""
-                
             },
             {
-                speaker: "Quester",
+                speaker: "The Quester" ,
                 text: "Let me introduce you to the Magnifying Glass.",
                 background: "assets/website/clubhouse/club-background.png",
                 character: "assets/cutscene/Quester-closeup.png",
@@ -19,14 +18,14 @@ const unlockCutsceneData = {
         ],
         body: [
             {
-                speaker: "Quester",
+                speaker: "The Quester" ,
                 text: "The Magnifying Glass helps you inspect clues more closely and notice details that might otherwise be missed.",
                 background: "assets/website/clubhouse/club-background.png",
                 character: "assets/cutscene/Quester-closeup.png",
                 toolImage: "assets/website/clubhouse/magnifying-glass.png"
             },
             {
-                speaker: "Quester",
+                speaker: "The Quester" ,
                 text: "When this tool is available in a mission, click its icon to activate it and examine the tagged clue or puzzle element it is linked to.",
                 background: "assets/website/clubhouse/club-background.png",
                 character: "assets/cutscene/Quester-closeup.png",
@@ -35,15 +34,80 @@ const unlockCutsceneData = {
         ],
         outro: [
             {
-                speaker: "Quester",
+                speaker: "The Quester" ,
                 text: "The Magnifying Glass is now yours. Use it wisely... and keep searching for what others overlook.",
                 background: "assets/website/clubhouse/club-background.png",
                 character: "assets/cutscene/Quester-closeup.png",
                 toolImage: "assets/website/clubhouse/magnifying-glass.png"
             },
             {
-                speaker: "Quester",
+                speaker: "The Quester" ,
                 text: "Off you go, Quester. Your new tool has been added to the Clubhouse.",
+                background: "assets/website/clubhouse/club-background.png",
+                character: "assets/cutscene/Quester-closeup.png",
+                toolImage: ""
+            }
+        ]
+    },
+
+    decoder: {
+        intro: [
+            {
+                speaker: "The Quester" ,
+                text: "Excellent work, Quester... you have uncovered enough truthful treasure to reveal another secret.",
+                background: "assets/website/clubhouse/club-background.png",
+                character: "assets/cutscene/Quester-closeup.png",
+                toolImage: ""
+            },
+            {
+                speaker: "the Quester",
+                text: "This is the Decoder. It is not used during the mission itself... it helps you understand the clues you already found.",
+                background: "assets/website/clubhouse/club-background.png",
+                character: "assets/cutscene/Quester-closeup.png",
+                toolImage: "assets/website/clubhouse/decoder.png"
+            }
+        ],
+        body: [
+            {
+                speaker: "The Quester" ,
+                text: "When you discover a clue with the Magnifying Glass, the Decoder helps you read it using the Book name and a 3-part coordinate system.",
+                background: "assets/website/clubhouse/club-background.png",
+                character: "assets/cutscene/Quester-closeup.png",
+                toolImage: "assets/website/clubhouse/decoder.png"
+            },
+            {
+                speaker: "The Quester" ,
+                text: "Each clue includes the Book name, then Chapter, Verse, and Word Count.",
+                background: "assets/website/clubhouse/club-background.png",
+                character: "assets/cutscene/Quester-closeup.png",
+                toolImage: "assets/website/clubhouse/decoder.png"
+            },
+            {
+                speaker: "The Quester" ,
+                text: "When counting words, ignore all punctuation and count the words in order from the beginning of the verse.",
+                background: "assets/website/clubhouse/club-background.png",
+                character: "assets/cutscene/Quester-closeup.png",
+                toolImage: "assets/website/clubhouse/decoder.png"
+            },
+            {
+                speaker: "The Quester" ,
+                text: "For example... the phrase 'one six to seven nine' can be decoded as Deuteronomy 6:4 word 11... Exodus 20:9 word 1... Philippians 1:21 word 2... Proverbs 24:16 word 5... and Luke 17:17 word 11.",
+                background: "assets/website/clubhouse/club-background.png",
+                character: "assets/cutscene/Quester-closeup.png",
+                toolImage: "assets/website/clubhouse/decoder.png"
+            }
+        ],
+        outro: [
+            {
+                speaker: "The Quester" ,
+                text: "The Decoder has now been revealed. Use it outside the mission to turn clue coordinates into words.",
+                background: "assets/website/clubhouse/club-background.png",
+                character: "assets/cutscene/Quester-closeup.png",
+                toolImage: "assets/website/clubhouse/decoder.png"
+            },
+            {
+                speaker: "The Quester" ,
+                text: "Keep searching, Quester... hidden truth often waits for patient eyes.",
                 background: "assets/website/clubhouse/club-background.png",
                 character: "assets/cutscene/Quester-closeup.png",
                 toolImage: ""
@@ -55,7 +119,9 @@ const unlockCutsceneData = {
 function flattenUnlockCutscene(toolKey) {
     const toolScene = unlockCutsceneData[toolKey];
 
-    if (!toolScene) return [];
+    if (!toolScene) {
+        return [];
+    }
 
     return [
         ...(Array.isArray(toolScene.intro) ? toolScene.intro : []),
