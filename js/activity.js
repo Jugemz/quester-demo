@@ -196,6 +196,14 @@ function getCurrentActivityData() {
   return resource.activityArray[currentActivity - 1] || null;
 }
 
+function getActivityDataByIndex(i) {
+  if (resource.challengeArray) {
+    return resource.challengeArray[i] || null;
+  }
+
+  return resource.activityArray[i - 1] || null;
+}
+
 function getShopkeeperAssetForActivity(activity) {
   if (!activity || !activity.assets) {
     return "";
@@ -221,8 +229,24 @@ function refreshCurrentActivityToolState() {
   if (!assetName) return;
 
   shopkeeperImageEl.src = `${resource.path}assets/activity/character/${assetName}`;
-}
 
+  shopkeeperImageEl.classList.remove("image-clue-target");
+  delete shopkeeperImageEl.dataset.clue;
+
+  if (
+    activity.assets &&
+    Array.isArray(activity.assets.imageClues)
+  ) {
+    activity.assets.imageClues.forEach(function(imageClue) {
+      if (!imageClue || !imageClue.selector || !imageClue.clue) return;
+
+      if (imageClue.selector === ".img-character-shopkeeper") {
+        shopkeeperImageEl.classList.add("image-clue-target");
+        shopkeeperImageEl.dataset.clue = imageClue.clue;
+      }
+    });
+  }
+}
 function getActivityBackgroundAssetForActivity(activity) {
   if (!activity || !activity.assets) {
     return "";
@@ -230,16 +254,168 @@ function getActivityBackgroundAssetForActivity(activity) {
 
   return activity.assets.activityBackground || "";
 }
+
 function parseToolTags(text) {
-    if (!text) return "";
+  if (!text) return "";
 
-    // *M*(text) → wrap with magnifier tag
-    text = text.replace(/\*M\*\((.*?)\)/g, function(match, content) {
-        return `<span data-tool-tag="mg-font" class="tool-target">${content}</span>`;
-    });
+  text = text.replace(/\*M\*\((.*?)\)/g, function(match, content) {
+    return `<span data-tool-tag="mg-font" class="tool-target">${content}</span>`;
+  });
 
-    return text;
+  return text;
 }
+
+/////////////////////////////////////////
+// clue tracker helpers
+/////////////////////////////////////////
+function getImageCluesForActivity(activity) {
+  if (!activity || !activity.assets || !Array.isArray(activity.assets.imageClues)) {
+    return [];
+  }
+
+  return activity.assets.imageClues
+    .filter(function(item) {
+      return item && typeof item.clue === "string" && item.clue.trim() !== "";
+    })
+    .map(function(item) {
+      return item.clue.trim();
+    });
+}
+
+function getAllCluesForActivity(activity) {
+  if (!activity) return [];
+
+  if (
+    activity.assets &&
+    Array.isArray(activity.assets.clueOrder) &&
+    activity.assets.clueOrder.length
+  ) {
+    return activity.assets.clueOrder
+      .filter(function(clue) {
+        return typeof clue === "string" && clue.trim() !== "";
+      })
+      .map(function(clue) {
+        return clue.trim();
+      });
+  }
+
+  const cluePool = [];
+
+  const textClues = getMagnifierCluesForActivity(activity);
+  textClues.forEach(function(clue) {
+    if (!cluePool.includes(clue)) {
+      cluePool.push(clue);
+    }
+  });
+
+  const imageClues = getImageCluesForActivity(activity);
+  imageClues.forEach(function(clue) {
+    if (!cluePool.includes(clue)) {
+      cluePool.push(clue);
+    }
+  });
+
+  return cluePool;
+}
+
+function bindImageCluesForActivity(activity) {
+  if (!activity || !activity.assets || !Array.isArray(activity.assets.imageClues)) {
+    return;
+  }
+
+  activity.assets.imageClues.forEach(function(imageClue) {
+    if (!imageClue || !imageClue.selector || !imageClue.clue) return;
+
+    const elements = document.querySelectorAll(imageClue.selector);
+
+    elements.forEach(function(element) {
+      element.classList.add("image-clue-target");
+      element.dataset.clue = imageClue.clue;
+    });
+  });
+}
+
+function getConfiguredClueCount(activity) {
+  if (!activity || !activity.assets || typeof activity.assets !== "object") {
+    return null;
+  }
+
+  if (Number.isFinite(Number(activity.assets.numberOfClues))) {
+    return Number(activity.assets.numberOfClues);
+  }
+
+  if (Number.isFinite(Number(activity.assets.numberofClues))) {
+    return Number(activity.assets.numberofClues);
+  }
+
+  if (Number.isFinite(Number(activity.assets.clueCount))) {
+    return Number(activity.assets.clueCount);
+  }
+
+  return null;
+}
+
+function getMagnifierCluesForActivity(activity) {
+  if (!activity) return [];
+
+  const clueMatches = [];
+
+  function scanValue(value) {
+    if (typeof value === "string") {
+      const matches = value.match(/\*M\*\((.*?)\)/g);
+
+      if (matches) {
+        matches.forEach(function(match) {
+          const cleaned = match.replace(/^\*M\*\(/, "").replace(/\)$/, "").trim();
+
+          if (cleaned && !clueMatches.includes(cleaned)) {
+            clueMatches.push(cleaned);
+          }
+        });
+      }
+
+      return;
+    }
+
+    if (Array.isArray(value)) {
+      value.forEach(scanValue);
+      return;
+    }
+
+    if (value && typeof value === "object") {
+      Object.values(value).forEach(scanValue);
+    }
+  }
+
+  scanValue(activity);
+  return clueMatches;
+}
+
+function getTotalCluesForActivity(activity) {
+  const configuredCount = getConfiguredClueCount(activity);
+
+  if (configuredCount !== null) {
+    return configuredCount;
+  }
+
+  return getMagnifierCluesForActivity(activity).length;
+}
+
+function initializeClueTrackerForActivity(i) {
+  const activityData = getActivityDataByIndex(i);
+  const activityCluePool = getAllCluesForActivity(activityData);
+
+  if (typeof resetClueTracker === "function") {
+    resetClueTracker(activityCluePool);
+  }
+
+  if (typeof updateClueTrackerVisibility === "function") {
+    updateClueTrackerVisibility();
+  }
+
+  bindImageCluesForActivity(activityData);
+}
+
 /////////////////////////////////////////
 // sync all code input updates
 /////////////////////////////////////////
@@ -676,33 +852,102 @@ function closeActivityModal() {
   toggleClass(activityModalContentContainerToggle, "activity-modal-content-container-toggle--bottom", "activity-modal-content-container-toggle--top");
 }
 
+function initializeClueTrackerForActivity(i) {
+  const activityData = getActivityDataByIndex(i);
+  const activityCluePool = getAllCluesForActivity(activityData);
+
+  if (typeof resetClueTracker === "function") {
+    resetClueTracker(i, activityCluePool);
+  }
+
+  if (typeof updateClueTrackerVisibility === "function") {
+    updateClueTrackerVisibility();
+  }
+
+  bindImageCluesForActivity(activityData);
+}
+
 function drawActivity(i) {
+  const activityData = getActivityDataByIndex(i);
+
+  if (!activityData) {
+    return;
+  }
+
   if (resource.challengeArray) {
-    if (resource.challengeArray[i].info.type !== "code-box") {
-      let hint = resource.challengeArray[i].info.hint.text;
+    if (activityData.info.type !== "code-box") {
+      let hint = activityData.info.hint.text;
       let highlightedHint = hint.replace(/\[(.*?)\]/g, '<span class="hint-text--highlight">$1</span>');
       activityModalHintText.innerHTML = highlightedHint;
     }
   } else {
-    if (resource.activityArray[i - 1].type !== "code-box") {
-      let hint = resource.activityArray[i - 1].hint;
+    if (activityData.type !== "code-box") {
+      let hint = activityData.hint || "";
       let highlightedHint = hint.replace(/\[(.*?)\]/g, '<span class="hint-text--highlight">$1</span>');
       activityModalHintText.innerHTML = highlightedHint;
 
-      let activityType = resource.activityArray[i - 1].type;
+      let activityType = activityData.type;
 
       switch (activityType) {
         case "cryptogram":
-          drawActivity_cryptogram(i);
+          if (typeof drawActivity_cryptogram === "function") {
+            drawActivity_cryptogram(i);
+          }
+          break;
+
+        case "passage":
+          if (typeof drawActivity_passage === "function") {
+            drawActivity_passage(i);
+          }
+          break;
+
+        case "poem":
+          if (typeof drawActivity_poem === "function") {
+            drawActivity_poem(i);
+          }
+          break;
+
+        case "story":
+          if (typeof drawActivity_story === "function") {
+            drawActivity_story(i);
+          }
+          break;
+
+        case "puzzle":
+          if (typeof drawActivity_puzzle === "function") {
+            drawActivity_puzzle(i);
+          }
+          break;
+
+        case "crossword":
+          if (typeof drawActivity_crossword === "function") {
+            drawActivity_crossword(i);
+          }
+          break;
+
+        case "decoder":
+          if (typeof drawActivity_decoder === "function") {
+            drawActivity_decoder(i);
+          }
+          break;
+
+        case "multiple-choice":
+          if (typeof drawActivity_multipleChoice === "function") {
+            drawActivity_multipleChoice(i);
+          }
+          break;
+
+        default:
           break;
       }
     }
   }
 
   refreshCurrentActivityToolState();
-}
+  initializeClueTrackerForActivity(i);
 
-function clearActivity() {
+  
+}function clearActivity() {
   const activityModal = document.querySelector(".activity-modal");
 
   const childrenToRemove = activityModal.querySelectorAll(

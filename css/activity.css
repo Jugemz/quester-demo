@@ -1284,6 +1284,103 @@
         opacity: 0.6;
     }   
 }
+
+/* =========================================
+   Magnifier clue hover sparkle
+   append to bottom of activity/topic CSS
+========================================= */
+
+.clue,
+.mg-font-target,
+.tool-target,
+.magnifier-active .machine-highlight-yellow {
+    position: relative;
+    display: inline-block;
+    transform-origin: center;
+    transition: transform 0.25s ease, filter 0.25s ease, text-shadow 0.25s ease;
+}
+
+.magnifier-active .clue:hover,
+.magnifier-active .mg-font-target:hover,
+.tool-cursor--magnifier-active .mg-font-target:hover.magnifier-active .tool-target:hover,
+.magnifier-active .machine-highlight-yellow:hover {
+    animation: clue-pop 2s ease forwards;
+    z-index: 3;
+}
+
+@keyframes clue-pop {
+    0% {
+        transform: scale(1);
+        filter: brightness(1);
+        text-shadow: none;
+    }
+    40% {
+        transform: scale(1.25);
+        filter: brightness(1.5);
+        text-shadow:
+            0 0 0.5vmin rgba(var(--gold), 0.85),
+            0 0 1.2vmin rgba(var(--gold), 0.65);
+    }
+    70% {
+        transform: scale(1.15);
+        filter: brightness(1.3);
+        text-shadow:
+            0 0 0.35vmin rgba(var(--gold), 0.75),
+            0 0 0.9vmin rgba(var(--gold), 0.55);
+    }
+    100% {
+        transform: scale(1.2);
+        filter: brightness(1.4);
+        text-shadow:
+            0 0 0.4vmin rgba(var(--gold), 0.8),
+            0 0 1vmin rgba(var(--gold), 0.6);
+    }
+}
+
+.mg-font-target::after,
+.tool-target::after,
+.machine-highlight-yellow::after {
+    content: "";
+    position: absolute;
+    top: -20%;
+    left: -35%;
+    width: 45%;
+    height: 140%;
+    opacity: 0;
+    pointer-events: none;
+    transform: translateX(-120%) rotate(18deg);
+    background: linear-gradient(
+        90deg,
+        rgba(255,255,255,0) 0%,
+        rgba(255,255,255,0.15) 30%,
+        rgba(255,255,220,0.95) 50%,
+        rgba(255,255,255,0.15) 70%,
+        rgba(255,255,255,0) 100%
+    );
+    filter: blur(2px);
+}
+
+.magnifier-active .mg-font-target:hover::after,
+.magnifier-active .tool-target:hover::after,
+.magnifier-active .machine-highlight-yellow:hover::after {
+    opacity: 1;
+    animation: eclipse 1s linear;
+}
+
+@keyframes eclipse {
+    0% {
+        transform: translateX(-140%) rotate(18deg);
+        opacity: 0;
+    }
+    25% {
+        opacity: 0.65;
+    }
+    100% {
+        transform: translateX(220%) rotate(18deg);
+        opacity: 0;
+    }
+}
+
 .mg-font-target {
     transition: color 0.2s ease, font-family 0.2s ease;
 }

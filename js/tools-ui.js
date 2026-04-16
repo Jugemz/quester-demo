@@ -21,10 +21,16 @@ function clearActiveTool() {
 }
 
 function updateToolCursorState() {
-    document.body.classList.remove("tool-cursor--magnifier-active");
+    document.body.classList.remove(
+        "tool-cursor--magnifier-active",
+        "magnifier-active"
+    );
 
     if (activeToolKey === "magnifier") {
-        document.body.classList.add("tool-cursor--magnifier-active");
+        document.body.classList.add(
+            "tool-cursor--magnifier-active",
+            "magnifier-active"
+        );
     }
 }
 

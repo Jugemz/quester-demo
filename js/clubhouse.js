@@ -271,10 +271,6 @@ function updateTreasureUI(
     toolDisplayEl.style.display = unlockState.magnifierRevealed ? "flex" : "none";
 }
 
-if (decoderBenchItemEl) {
-    decoderBenchItemEl.style.display = unlockState.decoderRevealed ? "flex" : "none";
-}
-
    
 }
 

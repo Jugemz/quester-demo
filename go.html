@@ -117,13 +117,27 @@
 				</div>
 			</section>
 
-			<!-- footer -->
-			<section class = "footer footer--hidden">
-				<div class = "footer-element footer-element-timer--visible" id = "footer-element-timer">
-					<span class = "footer-element-time-label"></span>
-					<p class = "footer-element-time-remaining">&nbsp</p>
-				</div>
+	<!-- footer -->
+<section class="footer footer--hidden">
+    <div class="clue-tracker-panel" id="clue-tracker-panel" style="display: none;">
+        <p class="clue-tracker-title">Clues Found</p>
+
+        <div class="clue-tracker-progress" id="clue-tracker-progress">
+             found
+        </div>
+
+        <div class="clue-tracker-list" id="clue-tracker-list">
+            <p class="clue-tracker-empty">Start searching for hidden clues...</p>
+        </div>
+    </div>
+
+    <div class="footer-element footer-element-timer--visible" id="footer-element-timer">
+        <span class="footer-element-time-label"></span>
+        <p class="footer-element-time-remaining">&nbsp;</p>
+    </div>
+</section>
 			</section>
+
 				<!-- toolbox ui -->
 			<div id="toolbox-ui" class="toolbox-ui state-display-none"></div>
 			<!-- activity -->

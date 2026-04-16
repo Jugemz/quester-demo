@@ -9,16 +9,25 @@ const resource =  {
 
     activityArray: [
         /* The Mirror POND */
-        {
-             title: "THE PERCEPTION POND",
+    {
+    title: "THE PERCEPTION POND",
     characterName: "FISH",
     topic: "Main Idea",
     assets: {
         nodeBackground: "Mirror_Pond.png",
         characterShopkeeper: "Fish.png",
         magnifierCharacterShopkeeper: "Fish_mg.png",
-        activityBackground: "Mirror_Pond.png"
-    },
+        activityBackground: "Mirror_Pond.png",
+        numberOfClues: 1,
+        clueOrder: ["JOHN"],
+    imageClues: [
+        {
+            selector: ".activity-scene-character-base",
+            clue: "JOHN"
+        }
+    ]
+},
+    
     tools: {
         magnifier: {
             tag: "mg-detail"
@@ -134,6 +143,7 @@ const resource =  {
                 nodeBackground: "Cave.png",
                 characterShopkeeper: "Crab.png",
                 activityBackground: "Cave.png",
+                clueOrder: ["Th", "r", "ee"]
             },
             code: "LIGHT",
             userCode: ["","","","",""],
@@ -155,11 +165,11 @@ const resource =  {
                         }
                     },
                     item: {
-                        title:     "The Tangle of Thoughts",
+                        title:     "The Tangle of *M*(Th)oughts",
                         author:    "By Quester",
                         paragraph: [
                             [
-                                'I search wi*M*(th)in to find my name',
+                                'I search within to find my name',
                                 'But every path looks just the same.',
                                 'A cyclone swi*M*(r)ls inside my head,',
                                 'With tangled knots of doubt and dread.',
@@ -223,6 +233,14 @@ const resource =  {
                 characterShopkeeper: "Lizard.png",
                 magnifierCharacterShopkeeper: "Lizard_mg.png",
                 activityBackground: "Palm_Grove.png",
+                 numberOfClues: 1,
+        clueOrder: ["16"],
+    imageClues: [
+        {
+            selector: ".activity-scene-character-base",
+            clue: "16"
+        }
+    ]
             },
             code: "HOPE",
             userCode: ["","","",""],
@@ -303,6 +321,7 @@ const resource =  {
                 nodeBackground: "Sandy.png",
                 characterShopkeeper: "Stick.png",
                 activityBackground: "Sandy.png",
+                clueOrder: ["o", "n", "e"]
             },
             code: "PEACE",
             userCode: ["","","","",""],
