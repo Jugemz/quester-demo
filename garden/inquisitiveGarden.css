@@ -1,0 +1,186 @@
+/* =========================================
+   INQUISITIVE GARDEN - GLOBAL THEME
+========================================= */
+
+:root {
+    --garden-bg: #0f1a14;
+    --garden-deep: #16241c;
+    --garden-panel: #1f3327;
+    --garden-accent: #7bd389;
+    --garden-accent-soft: #a8e6b0;
+    --garden-gold: #e6d3a3;
+    --garden-text: #e8f5e9;
+    --garden-muted: #9fb7a7;
+    --garden-danger: #ff7a7a;
+}
+
+/* =========================================
+   BASE RESET / BODY
+========================================= */
+
+body {
+    background: radial-gradient(circle at top, #1b2e23, var(--garden-bg));
+    color: var(--garden-text);
+    font-family: 'Segoe UI', sans-serif;
+    margin: 0;
+    overflow: hidden;
+}
+
+/* =========================================
+   GLASSHOUSE OVERLAY (INTRO)
+========================================= */
+
+.garden-intro {
+    position: fixed;
+    inset: 0;
+    background: linear-gradient(180deg, rgba(10,20,15,0.95), rgba(5,10,8,0.98));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 9999;
+}
+
+.garden-intro-panel {
+    background: var(--garden-panel);
+    border: 1px solid rgba(123, 211, 137, 0.3);
+    box-shadow: 0 0 40px rgba(123, 211, 137, 0.15);
+    padding: 40px;
+    max-width: 600px;
+    text-align: center;
+    border-radius: 12px;
+}
+
+/* Title */
+.garden-title {
+    font-size: 32px;
+    color: var(--garden-accent);
+    letter-spacing: 2px;
+    margin-bottom: 10px;
+}
+
+/* Subtitle */
+.garden-subtitle {
+    color: var(--garden-gold);
+    font-size: 14px;
+    margin-bottom: 20px;
+}
+
+/* Body Text */
+.garden-text {
+    color: var(--garden-muted);
+    line-height: 1.6;
+}
+
+/* Button */
+.garden-btn {
+    margin-top: 25px;
+    padding: 12px 24px;
+    background: var(--garden-accent);
+    border: none;
+    color: #0b1a12;
+    font-weight: bold;
+    cursor: pointer;
+    border-radius: 6px;
+    transition: 0.2s ease;
+}
+
+.garden-btn:hover {
+    background: var(--garden-accent-soft);
+}
+
+/* =========================================
+   TOP BAR / UI RESKIN
+========================================= */
+
+#controls, .controls, .top-bar {
+    background: var(--garden-deep) !important;
+    border-bottom: 1px solid rgba(123,211,137,0.2);
+}
+
+/* Buttons */
+button {
+    background: var(--garden-panel);
+    color: var(--garden-text);
+    border: 1px solid rgba(123,211,137,0.2);
+    padding: 6px 10px;
+    cursor: pointer;
+}
+
+button:hover {
+    background: var(--garden-accent);
+    color: #0b1a12;
+}
+
+/* =========================================
+   CATEGORY / ELEMENT PANEL
+========================================= */
+
+.category, .menu, .elementMenu {
+    background: var(--garden-panel) !important;
+    border-right: 1px solid rgba(123,211,137,0.15);
+}
+
+/* Active category */
+.category.active {
+    background: var(--garden-accent);
+    color: #0b1a12;
+}
+
+/* =========================================
+   ELEMENT BUTTONS
+========================================= */
+
+.elementButton {
+    background: #243c2f;
+    color: var(--garden-text);
+    border: 1px solid rgba(123,211,137,0.15);
+}
+
+.elementButton:hover {
+    background: var(--garden-accent);
+    color: #0b1a12;
+}
+
+/* =========================================
+   CANVAS AREA (THE "SOIL")
+========================================= */
+
+canvas {
+    background: #0c1410;
+}
+
+/* =========================================
+   TOOLTIP / INFO
+========================================= */
+
+.tooltip {
+    background: var(--garden-panel);
+    color: var(--garden-text);
+    border: 1px solid rgba(123,211,137,0.25);
+}
+
+/* =========================================
+   SPECIAL EFFECTS
+========================================= */
+
+/* subtle glow */
+.glow {
+    box-shadow: 0 0 10px var(--garden-accent);
+}
+
+/* rare / special items */
+.rare {
+    color: var(--garden-gold);
+}
+
+/* =========================================
+   SCROLLBAR (optional polish)
+========================================= */
+
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--garden-accent);
+}
